@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:table="sap.ui.table">
+	<Dialog title="{/#ZI_MaterialStdVHType/Material/@sap:label}" class="sapUiResponsiveMargin" draggable="true" afterClose="onExitValueHelpMaterial" resizable="true"
+		>
+		<buttons>
+			<Button text="{i18n>xbut.cancel}" type="Emphasized" press="onCancelValueHelpMaterial"/>
+		</buttons>
+		<content>
+			<VBox class="sapUiResponsiveMargin" fitContainer="true">
+				<items>
+					<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZI_MaterialStdVH" showClearButton="true" showClearOnFB="true" showGoOnFB="true"
+						deltaVariantMode="false" enableBasicSearch="false">
+						<smartFilterBar:layoutData>
+							<FlexItemData shrinkFactor="0"/>
+						</smartFilterBar:layoutData>
+						<smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="Material" filterType="single" visibleInAdvancedArea="true"/>
+                            <smartFilterBar:ControlConfiguration key="Material_Text" filterType="single" visibleInAdvancedArea="true"/>
+                            <smartFilterBar:ControlConfiguration key="MaterialType" filterType="single" visibleInAdvancedArea="false">
+                             <smartFilterBar:defaultFilterValues>
+                                    <smartFilterBar:SelectOption low="ERSA"/>
+                                </smartFilterBar:defaultFilterValues>
+                            </smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+					</smartFilterBar:SmartFilterBar>
+					<smartTable:SmartTable id="smartTable" enableAutoBinding="true"  beforeRebindTable="onBeforeRebindSmartTable" entitySet="ZI_MaterialStdVH" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
+						header="{/#ZI_MaterialStdVHType/Material/@sap:label}" showRowCount="true" useExportToExcel="false" showTablePersonalisation="false">
+						<smartTable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smartTable:layoutData>
+						<table:Table id="tableSmartTableID" alternateRowColors="true" enableSelectAll="false" selectionMode="Single" selectionBehavior="Row"
+							rowSelectionChange="onChooseMaterial" visibleRowCountMode="Interactive">
+							<!--Material-->
+							<table:Column width="11em" id="MaterialColumn" sortProperty="Material" filterProperty="Material">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "Material", "leadingProperty": "Material"}'/>
+								</table:customData>
+								<Label id="MaterialLabel" text="{/#ZI_MaterialStdVHType/Material/@sap:label}"/>
+								<table:template>
+									<Text id="MaterialCell" text="{Material}"/>
+								</table:template>
+							</table:Column>
+							<!--Material_Text-->
+							<table:Column id="Material_TextColumn" sortProperty="Material_Text" filterProperty="Material_Text">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "Material_Text", "leadingProperty": "Material_Text"}'/>
+								</table:customData>
+								<Label id="Material_TextLabel" text="{/#ZI_MaterialStdVHType/Material_Text/@sap:label}"/>
+								<table:template>
+									<Text id="Material_TextCell" text="{Material_Text}"/>
+								</table:template>
+							</table:Column>
+						</table:Table>
+					</smartTable:SmartTable>
+				</items>
+			</VBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

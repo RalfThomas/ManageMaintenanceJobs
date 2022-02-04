@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:table="sap.ui.table">
+	<Dialog title="{/#ZC_MaterialPlantMalfuncManagVHType/Plant/@sap:label}" class="sapUiResponsiveMargin" draggable="true" afterClose="onExitValueHelpPlant" resizable="true"
+		>
+		<buttons>
+			<Button text="{i18n>xbut.cancel}" type="Emphasized" press="onCancelValueHelpPlant"/>
+		</buttons>
+		<content>
+			<VBox class="sapUiResponsiveMargin" fitContainer="true">
+				<items>
+					<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZC_MaterialPlantMalfuncManagVH" showClearButton="true" showClearOnFB="true" showGoOnFB="true"
+						deltaVariantMode="false" enableBasicSearch="false">
+						<smartFilterBar:layoutData>
+							<FlexItemData shrinkFactor="0"/>
+						</smartFilterBar:layoutData>
+						<smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="Plant" filterType="single" visibleInAdvancedArea="true">
+                                <smartFilterBar:defaultFilterValues>
+                                    <smartFilterBar:SelectOption low="{appView>/Plant}"/>
+                                </smartFilterBar:defaultFilterValues>
+                            </smartFilterBar:ControlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="PlantName" filterType="single" visibleInAdvancedArea="true"/>
+						</smartFilterBar:controlConfiguration>
+					</smartFilterBar:SmartFilterBar>
+					<smartTable:SmartTable id="smartTable" enableAutoBinding="true"  beforeRebindTable="onBeforeRebindSmartTable" entitySet="ZC_MaterialPlantMalfuncManagVH" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
+						header="{/#ZC_MaterialPlantMalfuncManagVHType/Plant/@sap:label}" showRowCount="true" useExportToExcel="false" showTablePersonalisation="false">
+						<smartTable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smartTable:layoutData>
+						<table:Table id="tableSmartTableID" alternateRowColors="true" enableSelectAll="false" selectionMode="Single" selectionBehavior="Row"
+							rowSelectionChange="onChoosePlant" visibleRowCountMode="Interactive">
+							<!--Plant-->
+							<table:Column width="7em" id="PlantColumn" sortProperty="Plant" filterProperty="Plant">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "Plant", "leadingProperty": "Plant"}'/>
+								</table:customData>
+								<Label id="PlantLabel" text="{/#ZC_PMWorkCenterVHType/Plant/@sap:label}"/>
+								<table:template>
+									<Text id="PlantCell" text="{Plant}"/>
+								</table:template>
+							</table:Column>
+							<!--PlantName-->
+							<table:Column id="PlantNameColumn" sortProperty="PlantName" filterProperty="PlantName">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "PlantName", "leadingProperty": "PlantName"}'/>
+								</table:customData>
+								<Label id="PlantNameLabel" text="{/#ZC_MaterialPlantMalfuncManagVHType/PlantName/@sap:label}"/>
+								<table:template>
+									<Text id="PlantNameCell" text="{PlantName}"/>
+								</table:template>
+							</table:Column>
+						</table:Table>
+					</smartTable:SmartTable>
+				</items>
+			</VBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,23 @@
+<mvc:View controllerName="zi2d.eam.malfunction.manages1.controller.fragment.EditPartDialog" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smartfield="sap.ui.comp.smartfield" 
+	xmlns:smartform="sap.ui.comp.smartform" xmlns="sap.m">
+	<Dialog contentWidth="40rem" id="pmMalfuncManageDialogEditPart" stretch="{device>/system/phone}" title="{i18n>xtit.editPart}">
+		<content>
+			<smartform:SmartForm editTogglable="false" editable="true" flexEnabled="false" id="malfuncManageSmartFormEditPart">
+				<smartform:layout>
+					<smartform:Layout columnsL="1" columnsM="1" emptySpanL="1" emptySpanM="0" labelSpanL="12" labelSpanM="12"></smartform:Layout>
+				</smartform:layout>
+				<smartform:groups>
+					<smartform:Group>
+						<smartform:GroupElement>
+							<smartfield:SmartField textAlign="Right" fieldGroupIds="RequirementQuantityInBaseUnit" value="{RequirementQuantityInBaseUnit}" />
+						</smartform:GroupElement>
+						<smartform:GroupElement>
+							<smartfield:SmartField fieldGroupIds="StorageLocation" value="{StorageLocation}" />
+						</smartform:GroupElement>
+					</smartform:Group>
+				</smartform:groups>
+			</smartform:SmartForm>
+		</content>
+	</Dialog>
+</mvc:View>

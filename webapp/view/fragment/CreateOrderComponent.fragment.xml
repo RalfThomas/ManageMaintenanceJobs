@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartform="sap.ui.comp.smartform"
+	xmlns:smartfield="sap.ui.comp.smartfield" xmlns:layout="sap.ui.layout" 	xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>xbut.addPart}" contentWidth="40rem" id="pmCreateOrderComponent" stretch="{device>/system/phone}" afterClose="afterDialogClosed">
+		<content>            
+            <VBox width="100%" direction="Column" wrap="Wrap">
+                <items>
+                    <f:SimpleForm editable="true" layout="ColumnLayout" backgroundDesign="Solid" labelSpanM="12" labelSpanL="12" labelSpanXL="12" emptySpanL="6" emptySpanM="6">
+                        <f:content>
+                            <!-- Material -->
+                            <Label text="{/#ZC_MaintOrderComponentTP/Material/@sap:label}" required="true" labelFor="inpMaterial"/>
+                            <Input id="inpMaterial" value="{appView>/Material}" showValueHelp="true" valueHelpOnly="false" valueHelpRequest=".onValueHelpMaterial"/>
+                            <!-- Plant -->
+                            <Label text="{/#ZC_MaintOrderComponentTP/Plant/@sap:label}" required="true" labelFor="inpPlant"/>
+                            <Input id="inpPlant" value="{appView>/Plant}" showValueHelp="true" valueHelpOnly="false" valueHelpRequest=".onValueHelpPlant"/> 
+                            <!-- MaintenanceOrderOperation -->
+                            <Label text="{/#ZC_MaintOrderComponentTP/MaintenanceOrderOperation/@sap:label}" required="false" labelFor="inpMaintenanceOrderOperationt"/>
+                            <Input id="inpMaintenanceOrderOperation" value="{appView>/MaintenanceOrderOperation}" required="true" valueHelpOnly="true" type="Number"
+                                showSuggestion="true" suggest=".onSuggestMaintenanceOrderOperation" suggestionItems="{appView>/WorkItems}" change="onChangeMaintenanceOrderOperation">
+                                <suggestionItems>
+                                    <core:Item text="{appView>MaintenanceOrderOperation}" />
+                                </suggestionItems>
+                            </Input>
+                            <Label text="{/#ZC_MaintOrderComponentTP/RequirementQuantityInBaseUnit/@sap:label}" required="false" labelFor="inpbaseunit"/>
+                            <Input id="inpbaseunit" value="{appView>/Requirementquantityinbaseunit}" type="Number"/>
+                            <!-- <Input id="inpbaseunitvh" value="{appView>/BaseUnit}" showValueHelp="true" valueHelpOnly="false" valueHelpRequest=".onValueHelpBaseUnit"/> -->
+                            <Label text="{/#ZC_MaintOrderComponentTPType/StorageLocation/@sap:label}" required="false" labelFor="inpStorageLocation"/>
+                            <Input id="inpStorageLocation" value="{appView>/StorageLocation}" showValueHelp="true" valueHelpOnly="false" valueHelpRequest=".onValueHelpStorageLocation"/>
+                        </f:content>
+                    </f:SimpleForm>
+                </items>
+            </VBox>                		
+		</content>
+        <beginButton>
+            <Button id="submitButton" type="Emphasized" text="{i18n>xbut.save}" tooltip="{i18n>xbut.save}" press="onCreateOrderComponent"/>
+        </beginButton>
+        <endButton>
+            <Button id="cancelButton" text="{i18n>xbut.cancel}" tooltip="{i18n>xbut.cancel}" press="onCancelPressed"/>
+        </endButton>
+	</Dialog>
+</core:FragmentDefinition>

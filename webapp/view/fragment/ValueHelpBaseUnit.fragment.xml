@@ -1,0 +1,65 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:table="sap.ui.table">
+	<Dialog title="{/#ZI_PMUnitOfMeasureVHType/UnitOfMeasure/@sap:label}" class="sapUiResponsiveMargin" draggable="true" afterClose="onExitValueHelpBaseUnit" resizable="true"
+		>
+		<buttons>
+			<Button text="{i18n>xbut.cancel}" type="Emphasized" press="onCancelValueHelpBaseUnit"/>
+		</buttons>
+		<content>
+			<VBox class="sapUiResponsiveMargin" fitContainer="true">
+				<items>
+					<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZI_PMUnitOfMeasureVH" showClearButton="true" showClearOnFB="true" showGoOnFB="true"
+						deltaVariantMode="false" enableBasicSearch="false">
+						<smartFilterBar:layoutData>
+							<FlexItemData shrinkFactor="0"/>
+						</smartFilterBar:layoutData>
+						<smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="UnitOfMeasure" filterType="single" visibleInAdvancedArea="true"/>
+                            <smartFilterBar:ControlConfiguration key="UnitOfMeasure_Text" filterType="single" visibleInAdvancedArea="true"/>
+                            <smartFilterBar:ControlConfiguration key="UnitOfMeasureTechnicalName" filterType="single" visibleInAdvancedArea="true"/>
+						</smartFilterBar:controlConfiguration>
+					</smartFilterBar:SmartFilterBar>
+					<smartTable:SmartTable id="smartTable" beforeRebindTable="onBeforeRebindSmartTable" entitySet="ZI_PMUnitOfMeasureVH" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
+						header="{/#ZI_PMUnitOfMeasureVHType/UnitOfMeasure/@sap:label}" showRowCount="true" useExportToExcel="false" showTablePersonalisation="false">
+						<smartTable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smartTable:layoutData>
+						<table:Table id="tableSmartTableID" alternateRowColors="true" enableSelectAll="false" selectionMode="Single" selectionBehavior="Row"
+							rowSelectionChange="onChooseBaseUnit" visibleRowCountMode="Interactive">
+							<!--UnitOfMeasure-->
+							<table:Column width="7em" id="UnitOfMeasureColumn" sortProperty="UnitOfMeasure" filterProperty="UnitOfMeasure">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "UnitOfMeasure", "leadingProperty": "UnitOfMeasure"}'/>
+								</table:customData>
+								<Label id="UnitOfMeasureLabel" text="{/#ZI_PMUnitOfMeasureVHType/UnitOfMeasure/@sap:label}"/>
+								<table:template>
+									<Text id="UnitOfMeasureCell" text="{UnitOfMeasure}"/>
+								</table:template>
+							</table:Column>
+							<!--UnitOfMeasure_Text-->
+							<table:Column id="UnitOfMeasure_TextColumn" sortProperty="UnitOfMeasure_Text" filterProperty="UnitOfMeasure_Text">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "UnitOfMeasure_Text", "leadingProperty": "UnitOfMeasure_Text"}'/>
+								</table:customData>
+								<Label id="UnitOfMeasure_TextLabel" text="{/#ZI_PMUnitOfMeasureVHType/UnitOfMeasure_Text/@sap:label}"/>
+								<table:template>
+									<Text id="UnitOfMeasure_TextCell" text="{UnitOfMeasure_Text}"/>
+								</table:template>
+							</table:Column>
+                            <!--UnitOfMeasureTechnicalName-->
+							<table:Column id="UnitOfMeasureTechnicalNameColumn" sortProperty="UnitOfMeasureTechnicalName" filterProperty="UnitOfMeasureTechnicalName">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "UnitOfMeasureTechnicalName", "leadingProperty": "UnitOfMeasureTechnicalName"}'/>
+								</table:customData>
+								<Label id="UnitOfMeasureTechnicalNameLabel" text="{/#ZI_PMUnitOfMeasureVHType/UnitOfMeasureTechnicalName/@sap:label}"/>
+								<table:template>
+									<Text id="UnitOfMeasureTechnicalNameCell" text="{UnitOfMeasureTechnicalName}"/>
+								</table:template>
+							</table:Column>
+						</table:Table>
+					</smartTable:SmartTable>
+				</items>
+			</VBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

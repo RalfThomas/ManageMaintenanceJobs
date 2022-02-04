@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ActionSheet
+		title=""
+		showCancelButton="true"
+		placement="Bottom">
+		<buttons>
+			<Button id="CheckInOriginal" text="{i18n>Check_In_Original}"  press="_onCheckInOriginalPress"/>
+			<Button id="CheckInAsNewVersion" text="{i18n>Check_In_As_New_Version}"  press="_onCheckInAsNewVersionPress"/>
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

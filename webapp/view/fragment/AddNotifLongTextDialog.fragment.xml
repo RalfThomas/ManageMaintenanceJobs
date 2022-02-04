@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" 
+	xmlns:smartform="sap.ui.comp.smartform">
+	<Dialog title="{i18n>xtit.notiflongtext}" contentWidth="40rem" id="AddNotifLongTextDialog" 
+            afterClose="onExitAddNotifLongTextDialog"
+            stretch="{device>/system/phone}">
+		<buttons>
+			<Button text="{i18n>xbut.cancel}" type="Reject" press="onCancelAddNotifLongText"/>
+            <Button text="{i18n>xbut.save}" type="Emphasized" press="onSaveNotifLongText"/>
+		</buttons>
+        <content>
+			<smartform:SmartForm editable="true" id="malfuncManageSmartFormAddNotifLongTextDialog">
+				<smartform:layout>
+					<smartform:Layout labelSpanL="12" labelSpanM="12"/>
+				</smartform:layout>
+				<smartform:groups>
+					<smartform:Group>
+                        <smartform:GroupElement elementForLabel="1">
+							<smartform:elements>
+								 <TextArea  class="sapMLIBContent" value="{KommentarModel>/NotificationLongText}" 
+                                            rows="6" editable="true"
+                                            maxLength="1333" growing="true" 
+                                            width="100%" height="auto">
+                                    <layoutData>
+                                        <FlexItemData growFactor="3" />
+                                    </layoutData>
+				                </TextArea>
+							</smartform:elements>
+						</smartform:GroupElement>
+					</smartform:Group>
+				</smartform:groups>
+			</smartform:SmartForm>
+		</content>
+	</Dialog>
+ </core:FragmentDefinition> 

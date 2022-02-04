@@ -1,0 +1,54 @@
+ <mvc:View controllerName="zi2d.eam.malfunction.manages1.controller.fragment.EditWorkItemDialog" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smartfield="sap.ui.comp.smartfield"
+	xmlns:smartform="sap.ui.comp.smartform" xmlns="sap.m" xmlns:layout="sap.ui.layout">  
+	<Dialog contentWidth="40rem" id="pmMalfuncManageDialogEditWorkItem" busy="{app>/isDialogBusy}" stretch="{device>/system/phone}">
+		<content>
+			<smartform:SmartForm editable="true" id="malfuncManageSmartFormEditWorkItem">
+				<smartform:layout>
+					<smartform:Layout labelSpanL="12" labelSpanM="12"/>
+				</smartform:layout>
+				<smartform:groups>
+					<smartform:Group>
+						<smartform:GroupElement>
+							<smartform:elements>
+								<smartfield:SmartField textLabel="{i18n>xfld.workCenterAndPlant}" fieldGroupIds="OperationWorkCenter" editable="true" enabled="true" mandatory="true"
+									value="{OperationWorkCenter}"/>
+								<smartfield:SmartField fieldGroupIds="OperationWorkCenter" editable="true" value="{Plant}"/>
+							</smartform:elements>
+						</smartform:GroupElement>
+						<smartform:GroupElement>
+							<!-- <smartform:elements> -->
+								<smartfield:SmartField fieldGroupIds="OperationDescription" value="{OperationDescription}"/>
+							<!-- </smartform:elements> -->
+						</smartform:GroupElement>
+                        <!-- visible="{= ${OperationCalculationControl} === '1' }" visibleChanged="onPlanningValueVisibilityChanged" -->
+						<smartform:GroupElement elementForLabel="1">
+							<smartform:elements>
+								<Slider id="malfuncManageOperationPlannedWorkSlider" step="10" liveChange="onPlanningValueSliderChange"/>
+								<smartfield:SmartField textAlign="Right" id="malfuncManageOperationPlannedWorkSmartField" value="{OperationPlannedWork}"
+									change="onPlanningValueChanged" fieldGroupIds="OperationPlannedWork"/>
+							</smartform:elements>
+						</smartform:GroupElement>
+                        <smartform:GroupElement elementForLabel="1">
+							<smartform:elements>
+                                <Label text="{i18n>xtit.longtext}:"/>
+							</smartform:elements>
+						</smartform:GroupElement>
+                        <smartform:GroupElement elementForLabel="1">
+							<smartform:elements>
+								 <TextArea  class="sapMLIBContent" value="{KommentarModel>/OperationLongText}" 
+                                            rows="6" editable="false"
+                                            maxLength="1333" growing="true" 
+                                            width="100%" height="auto">
+                                    <layoutData>
+                                        <FlexItemData growFactor="3" />
+                                    </layoutData>
+				                </TextArea>
+							</smartform:elements>
+						</smartform:GroupElement>
+					</smartform:Group>
+				</smartform:groups>
+			</smartform:SmartForm>
+		</content>
+	</Dialog>
+ </mvc:View> 

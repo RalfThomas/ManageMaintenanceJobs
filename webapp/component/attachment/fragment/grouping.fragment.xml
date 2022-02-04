@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog title="{i18n>GSF_for_attachment}" confirm="onViewSettingsConfirm">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>File_name_Title}" key="Filename"/>
+			<ViewSettingsItem text="{i18n>Uploaded_By_Title}" key="uploadedBy"/>
+			<ViewSettingsItem text="{i18n>File_Size_Title}" key="fileSize"/>
+			<ViewSettingsItem text="{i18n>Status_Title}" key="status"/>
+			<ViewSettingsItem text="{i18n>Doc_Type}" key="Documenttype"/>
+		</sortItems>
+		<groupItems>
+			<ViewSettingsItem text="{i18n>Uploaded_By_Title}" key="uploadedBy"/>
+			<ViewSettingsItem text="{i18n>Mime_Type_Title}" key="content_type"/>
+			<ViewSettingsItem text="{i18n>Status_Title}" key="status"/>
+			<ViewSettingsItem text="{i18n>Doc_Type}" key="Documenttype"/>
+		</groupItems>
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>Doc_Type}" key="Documenttype" items="{path:'__DocType>/dataItems'}">
+				<items>
+					<ViewSettingsItem text="{__DocType>DocumentInfoRecordDocType}" key="{__DocType>DocumentInfoRecordDocType}"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Status_Title}" key="status" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="{i18n>CheckedIn}" key="{i18n>CheckedIn}"/>
+					<ViewSettingsItem text="{i18n>CheckedOut}" key="{i18n>CheckedOut}"/>
+					<ViewSettingsItem text="{i18n>Draft}" key="{i18n>Draft}"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

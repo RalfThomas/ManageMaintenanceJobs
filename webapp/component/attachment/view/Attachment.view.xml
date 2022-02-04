@@ -1,0 +1,97 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:ui="sap.ca.ui"
+	controllerName="zi2d.eam.malfunction.manages1.component.attachment.view.Attachment" resourceBundleAlias="i18n">
+	<VBox id="attachmentServiceVBoxPage">
+		<UploadCollection id="attachmentServiceFileUpload" visible="{= !${__attachmentModel>/largeFileHandlingEnabled}}" instantUpload="true"
+			items="{path : '__attachmentData>/dataitems', templateShareable : 'true', groupHeaderFactory: '.getGroupHeader'}"
+			showSeparators="All" fileDeleted="_onDeleteFile" multiple="true" fileRenamed="_onRenameFile" uploadComplete="_onUploadFile"
+			change="_onBeforeUploadFile" beforeUploadStarts="_onBeforeUploadStarts" uploadUrl="/sap/opu/odata/sap/CV_ATTACHMENT_SRV/OriginalContentSet"
+			uploadTerminated="_onUploadTerminated" sameFilenameAllowed="true" selectionChange="_onSelectionChange" noDataText="{i18n>No_entries}">
+			<toolbar>
+				<OverflowToolbar id="myId">
+					<Title id="attachmentTitle"/>
+					<Select id="DocTypeSelect" tooltip="{i18n>Select_Doc_type}" visible="false" change="_onDocTypeSelect" showSecondaryValues="true"
+						items="{path:'__DocType>/dataItems'}">
+						<core:ListItem key="{__DocType>DocumentInfoRecordDocType}" text="{__DocType>DocumentInfoRecordDocType_Text}"
+							additionalText="{__DocType>DocumentInfoRecordDocType}"/>
+					</Select>
+					<ToolbarSpacer/>
+					<Link visible="false" id="assignDIR" text="{i18n>Assign_DIR}" press="_onAssignUnassignDIR" tooltip="{i18n>Assign_DIR}"></Link>
+					<Link visible="false" id="unassignDIR" text="{i18n>Unassign_DIR}" press="_onAssignUnassignDIR" tooltip="{i18n>Unassign_DIR}"></Link>
+					<Link visible="false" id="CheckInButton" text="{i18n>CheckIn_Button}" press="_onCheckIn" tooltip="{i18n>CheckIn_Button}"></Link>
+					<Link visible="false" id="CheckOutButton" text="{i18n>CheckOut_Button}" press="_onCheckOut" tooltip="{i18n>CheckOut_Button}"></Link>
+					<Link visible="false" id="ResetCheckOutButton" text="{i18n>Reset_CheckOut}" press="_onResetCheckOut" tooltip="{i18n>Reset_CheckOut}"></Link>
+					<Link id="AddUrl" emphasized="false" text="{i18n>Add_Links}" press="ShowUploadDialog" tooltip="{i18n>Add_Links}"></Link>
+					<Button id="Download" tooltip="{i18n>Download_Button}" press="_onDownloadAllAttach" enabled="false" type="Transparent"
+						icon="sap-icon://download"></Button>
+					<Button type="Transparent" id="viewSettings" visible="false" icon="sap-icon://drop-down-list" tooltip="View settings" press="onViewSettingsPressed"/>
+					<UploadCollectionToolbarPlaceholder></UploadCollectionToolbarPlaceholder>
+				</OverflowToolbar>
+			</toolbar>
+			<infoToolbar>
+				<Toolbar id="idInfoToolbar" active="true" press="onInfoToolbarPressed" visible="false">
+					<Label id="idInfoToolbarLabel"/>
+					<ToolbarSpacer/>
+					<core:Icon id="icClearFilters" width="2rem" src="sap-icon://sys-cancel"/>
+				</Toolbar>
+			</infoToolbar>
+			<UploadCollectionItem press="_pressLink" contributor="{__attachmentData>CreatedBy}" documentId="{__attachmentData>FileId}"
+				fileName="{__attachmentData>Filename}" mimeType="{__attachmentData>content_type}" uploadedDate="{__attachmentData>CreatedAt}"
+				url="{__attachmentData>url}" enableEdit="{__attachmentData>enableEdit}" enableDelete="{__attachmentData>enableDelete}"
+				visibleEdit="{=${path:'__attachmentData>visibleEdit'} &amp;&amp; ${path:'__attachmentModel>/changeEnabled'}}"
+				visibleDelete="{=${path:'__attachmentData>visibleDelete'} &amp;&amp; ${path:'__attachmentModel>/changeEnabled'}}"
+				attributes="{path : '__attachmentData>attributes', templateShareable : 'true'}"
+				statuses="{path : '__attachmentData>statuses', templateShareable : 'true'}">
+				<customData>
+					<core:CustomData key="ApplicationId" value="{__attachmentData>ApplicationId}"/>
+					<core:CustomData key="FileId" value="{__attachmentData>FileId}"/>
+				</customData>
+				<attributes>
+					<ObjectAttribute title="{__attachmentData>title}" text="{path : '__attachmentData>text'}" active="{__attachmentData>active}" visible="{__attachmentData>visible}"
+						press="_onAttributePress"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus title="{__attachmentData>title}" text="{__attachmentData>text}" state="{__attachmentData>state}"
+						icon="{__attachmentData>icon}" iconDensityAware="{__attachmentData>iconDensityAware}" textDirection="{__attachmentData>textDirection}"/>
+				</statuses>
+			</UploadCollectionItem>
+		</UploadCollection>
+		<UploadCollection id="attachmentServiceFileUploadLFH" visible="{__attachmentModel>/largeFileHandlingEnabled}" instantUpload="false"
+			items="{path : '__attachmentData>/dataitems', templateShareable : 'true'}" showSeparators="All" fileDeleted="_onDeleteFile" multiple="true"
+			fileRenamed="_onRenameFile" uploadComplete="_onUploadFile" change="_onBeforeUploadFile" beforeUploadStarts="_onBeforeUploadStarts"
+			uploadUrl="" uploadTerminated="_onUploadTerminated" sameFilenameAllowed="true" selectionChange="_onSelectionChange"
+			noDataText="{i18n>No_entries}" numberOfAttachmentsText=" ">
+			<toolbar>
+				<OverflowToolbar id="overflowToolbarLFH">
+					<Title id="attachmentTitleLFH"/>
+					<ToolbarSpacer/>
+					<!--<Link visible="false" id="CheckInButton" text="{i18n>CheckIn_Button}" press="_onCheckIn" tooltip="{i18n>CheckIn_Button}"></Link>-->
+					<!--<Link visible="false" id="CheckOutButton" text="{i18n>CheckOut_Button}" press="_onCheckOut" tooltip="{i18n>CheckOut_Button}"></Link>-->
+					<!--<Link visible="false" id="ResetCheckOutButton" text="{i18n>Reset_CheckOut}" press="_onResetCheckOut" tooltip="{i18n>Reset_CheckOut}"></Link>-->
+					<!--<Link enabled="" icon="sap-icon://world" type="emphasized" text="{i18n>Add_Links}" press="ShowUploadDialog" tooltip="{i18n>Add_Links}"></Link>-->
+					<!--<Button id="Download" tooltip="{i18n>Download_Button}" press="_onDownloadAllAttach" enabled="false" type="Transparent"-->
+					<!--	icon="sap-icon://download"></Button>-->
+					<UploadCollectionToolbarPlaceholder></UploadCollectionToolbarPlaceholder>
+				</OverflowToolbar>
+			</toolbar>
+			<UploadCollectionItem press="_pressLink" contributor="{__attachmentData>CreatedBy}" documentId="{__attachmentData>FileId}"
+				fileName="{__attachmentData>Filename}" mimeType="{__attachmentData>content_type}" uploadedDate="{__attachmentData>CreatedAt}"
+				url="{__attachmentData>url}" enableEdit="{__attachmentData>enableEdit}" enableDelete="{__attachmentData>enableDelete}"
+				visibleEdit="{__attachmentData>visibleEdit}" visibleDelete="{__attachmentData>enableDelete}"
+				attributes="{path : '__attachmentData>attributes', templateShareable : 'true'}"
+				statuses="{path : '__attachmentData>statuses', templateShareable : 'true'}">
+				<customData>
+					<core:CustomData key="ApplicationId" value="{__attachmentData>ApplicationId}"/>
+					<core:CustomData key="FileId" value="{__attachmentData>FileId}"/>
+				</customData>
+				<attributes>
+					<ObjectAttribute title="{__attachmentData>title}" text="{path : '__attachmentData>text'}" active="{__attachmentData>active}"
+						press="_onAttributePress"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus title="{__attachmentData>title}" text="{__attachmentData>text}" state="{__attachmentData>state}"
+						icon="{__attachmentData>icon}" iconDensityAware="{__attachmentData>iconDensityAware}" textDirection="{__attachmentData>textDirection}"/>
+				</statuses>
+			</UploadCollectionItem>
+		</UploadCollection>
+	</VBox>
+</core:View>

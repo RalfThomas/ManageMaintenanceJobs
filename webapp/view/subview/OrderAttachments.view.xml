@@ -1,0 +1,31 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:ui="sap.ca.ui"
+	controllerName="zi2d.eam.malfunction.manages1.component.attachment.view.Attachment" resourceBundleAlias="i18n">
+	<VBox id="attachmentServiceVBoxPage">
+		<UploadCollection id="attachmentServiceFileUploadLFH"
+			items="{path : '__attachmentData>/dataitems', templateShareable : 'true'}" showSeparators="All" fileDeleted="_onDeleteFile" multiple="true"
+			fileRenamed="_onRenameFile" uploadComplete="_onUploadFile" change="_onBeforeUploadFile" beforeUploadStarts="_onBeforeUploadStarts"
+			uploadUrl="" uploadTerminated="_onUploadTerminated" sameFilenameAllowed="true" selectionChange="_onSelectionChange"
+			noDataText="{i18n>No_entries}" numberOfAttachmentsText=" ">
+			
+			<UploadCollectionItem press="_pressLink" contributor="{__attachmentData>CreatedBy}" documentId="{__attachmentData>FileId}"
+				fileName="{__attachmentData>Filename}" mimeType="{__attachmentData>content_type}" uploadedDate="{__attachmentData>CreatedAt}"
+				url="{__attachmentData>url}" enableEdit="{__attachmentData>enableEdit}" enableDelete="{__attachmentData>enableDelete}"
+				visibleEdit="{__attachmentData>visibleEdit}" visibleDelete="{__attachmentData>enableDelete}"
+				attributes="{path : '__attachmentData>attributes', templateShareable : 'true'}"
+				statuses="{path : '__attachmentData>statuses', templateShareable : 'true'}">
+				<customData>
+					<core:CustomData key="ApplicationId" value="{__attachmentData>ApplicationId}"/>
+					<core:CustomData key="FileId" value="{__attachmentData>FileId}"/>
+				</customData>
+				<attributes>
+					<ObjectAttribute title="{__attachmentData>title}" text="{path : '__attachmentData>text'}" active="{__attachmentData>active}"
+						press="_onAttributePress"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus title="{__attachmentData>title}" text="{__attachmentData>text}" state="{__attachmentData>state}"
+						icon="{__attachmentData>icon}" iconDensityAware="{__attachmentData>iconDensityAware}" textDirection="{__attachmentData>textDirection}"/>
+				</statuses>
+			</UploadCollectionItem>
+		</UploadCollection>
+	</VBox>
+</core:View>

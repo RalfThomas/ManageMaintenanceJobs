@@ -1,0 +1,94 @@
+{
+    "_version": "1.1.0",
+    "sap.app": {
+        "_version": "1.1.0",
+        "id": "zi2d.eam.malfunction.manages1.component.attachment",
+        "type": "library",
+        "i18n": "i18n/i18n.properties",
+        "embeddedBy": "../",
+        "title": "{{title}}",
+        "description": "{{description}}",
+        "dataSources": {
+            "CV_ATTACHMENT_SRV_Entities": {
+                "uri": "/sap/opu/odata/sap/CV_ATTACHMENT_SRV/"
+            }
+        },
+        "resources": "resources.json",
+        "offline": false
+    },
+    "sap.ui": {
+        "componentName": "zi2d.eam.malfunction.manages1.component.attachment",
+        "_version": "1.1.0",
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_bluecrystal",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "_version": "1.1.0",
+        "dependencies": {
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.table": {},
+                "zi2d.eam.malfunction.manages1.component.attachment": {},
+                "sap.ui.comp": {}
+            },
+            "components": {
+                "zi2d.eam.malfunction.manages1.component.attachment.components.fscomponent": {
+                    "lazy": true
+                },
+                "zi2d.eam.malfunction.manages1.component.attachment.components.stcomponent": {
+                    "lazy": true
+                }
+            }
+        },
+        "componentUsages": {
+            "freestyleAttachmentReuseComponent": {
+                "name": "zi2d.eam.malfunction.manages1.component.attachment.components.fscomponent",
+                "settings": {}
+            },
+            "smarttemplateAttachmentReuseComponent": {
+                "name": "zi2d.eam.malfunction.manages1.component.attachment.components.stcomponent",
+                "settings": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zi2d.eam.malfunction.manages1.component.attachment.i18n.i18n"
+                }
+            }
+        },
+        "handleValidation": true,
+        "config": {},
+        "routing": {},
+        "contentDensities": {
+            "compact": false,
+            "cozy": false
+        }
+    },
+    "sap.platform.abap": {
+        "_version": "1.1.0",
+        "uri": "/sap/bc/bsp/sap/plm_ath_cres1/"
+    },
+    "sap.platform.hcp": {
+        "_version": "1.1.0",
+        "uri": ""
+    },
+    "sap.fiori": {
+        "_version": "1.1.0",
+        "registrationIds": [
+            "F1243"
+        ],
+        "archeType": "reusecomponent"
+    }
+}

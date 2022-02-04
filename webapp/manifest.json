@@ -1,0 +1,462 @@
+{
+    "_version": "1.14.0",
+    "sap.app": {
+        "_version": "1.2.0",
+        "id": "zi2d.eam.malfunction.manages1",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "7.0.6"
+        },
+        "title": "{{xtit.appTitle}}",
+        "description": "{{xtxt.appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "version": "1.32.0"
+        },
+        "openSourceComponents": [{
+                "name": "JsBarcode",
+                "version": "3.5.9",
+                "packagedWithMySelf": true
+            },
+            {
+                "name": "qrcode.js",
+                "packagedWithMySelf": true
+            }
+        ],
+        "dataSources": {
+            "malfunctionManage": {
+                "uri": "/sap/opu/odata/sap/ZEAM_MALFUNCTION_MANAGE_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": [
+                        "annotations",
+                        "malfunctionManage_Annotation"
+                    ],
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "ZEAM_OBJPG_MAINTNOTIFCAT_SRV": {
+                "uri": "/sap/opu/odata/sap/ZEAM_OBJPG_MAINTNOTIFCAT_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "ZEAM_OBJPG_MAINTORDANDOPER_SRV": {
+                "uri": "/sap/opu/odata/sap/ZEAM_OBJPG_MAINTORDANDOPER_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "ZEAM_NTF_CREATE_SRV": {
+                "uri": "/sap/opu/odata/sap/ZEAM_NTF_CREATE_SRV/",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": []
+                }
+            },
+            "EAM_MALFUNCTION_MANAGE_ANNO_MDL": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='EAM_MALFUNCTION_MANAGE_ANNO_MDL',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/EAM_MALFUNCTION_MANAGE_ANNO_MDL.xml"
+                }
+            },
+            "annotations": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotations.xml",
+                "settings": {
+                    "localUri": "annotations/annotations.xml"
+                }
+            },
+            "malfunctionManage_Annotation": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZEAM_MALFUNCTION_MANAGE_ANNO_MDL',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/malfunctionManage_Annotation.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "_version": "1.2.0",
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_bluecrystal",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "_version": "1.2.0",
+        "rootView": {
+            "viewName": "zi2d.eam.malfunction.manages1.view.App",
+            "type": "XML"
+        },
+        "routing": {
+            "config": {
+                "async": true,
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "zi2d.eam.malfunction.manages1.view",
+                "controlId": "pmMalfunctionManageAppContainer",
+                "controlAggregation": "pages",
+                "bypassed": {
+                    "target": "notFound"
+                }
+            },
+            "routes": [{
+                    "pattern": "",
+                    "name": "initial",
+                    "greedy": false
+                },
+                {
+                    "name": "create",
+                    "pattern": "create",
+                    "greedy": false,
+                    "target": [
+                        "create"
+                    ]
+                },
+                {
+                    "name": "manageJob",
+                    "pattern": "manageJob",
+                    "greedy": false,
+                    "target": [
+                        "manageJob"
+                    ]
+                },
+                {
+                    "name": "manageWorkItem",
+                    "pattern": "manageWorkItem",
+                    "greedy": false,
+                    "target": [
+                        "manageWorkItem"
+                    ]
+                },
+                {
+                    "name": "displayJob",
+                    "pattern": "MalfunctionReport/{MaintenanceNotification}/{MaintenanceOrderOperation}",
+                    "greedy": false,
+                    "target": [
+                        "displayJob"
+                    ],
+                    "titleTarget": "displayJob"
+                },
+                {
+                    "name": "editNotificationHeader",
+                    "pattern": "editHeader",
+                    "greedy": false,
+                    "parent": "displayJob",
+                    "target": [
+                        "editNotificationHeader"
+                    ]
+                },
+                {
+                    "name": "addWorkItem",
+                    "pattern": "addWorkItem",
+                    "greedy": false,
+                    "parent": "displayJob",
+                    "target": [
+                        "editWorkItem"
+                    ]
+                },
+                {
+                    "name": "editWorkItem",
+                    "pattern": "editWorkItem/{MaintenanceOrder}/{MaintenanceOrderOperation}",
+                    "greedy": false,
+                    "parent": "displayJob",
+                    "target": [
+                        "editWorkItem"
+                    ]
+                },
+                {
+                    "pattern": "addParts{?parameters}",
+                    "name": "selectParts",
+                    "parent": "displayJob",
+                    "target": [
+                        "selectParts"
+                    ],
+                    "greedy": false
+                },
+                {
+                    "name": "editPart",
+                    "pattern": "editPart/{MaintenanceOrder}/{MaintenanceOrderOperation}/{MaintenanceOrderComponent}",
+                    "greedy": false,
+                    "parent": "displayJob",
+                    "target": [
+                        "editPart"
+                    ]
+                },
+                {
+                    "name": "addMalfunctionDetails",
+                    "pattern": "addMalfunctionDetails",
+                    "greedy": false,
+                    "parent": "displayJob",
+                    "target": [
+                        "addMalfunctionDetails"
+                    ]
+                },
+                {
+                    "name": "editMalfunctionDetails",
+                    "pattern": "editMalfunctionDetails/{MaintenanceNotificationItem}",
+                    "greedy": false,
+                    "parent": "displayJob",
+                    "target": [
+                        "editMalfunctionDetails"
+                    ]
+                },
+                {
+                    "name": "editMalfunctionCauses",
+                    "pattern": "editMalfunctionDetails/{MaintenanceNotificationItem}/causes",
+                    "greedy": false,
+                    "parent": "displayJob",
+                    "target": [
+                        "editMalfunctionDetails"
+                    ]
+                },
+                {
+                    "name": "editMalfunctionActivities",
+                    "pattern": "editMalfunctionDetails/{MaintenanceNotificationItem}/activities",
+                    "greedy": false,
+                    "parent": "displayJob",
+                    "target": [
+                        "editMalfunctionDetails"
+                    ]
+                }
+            ],
+            "targets": {
+                "create": {
+                    "viewName": "CreateNotification",
+                    "viewId": "malfuncManageViewCreateNotification",
+                    "viewLevel": 2,
+                    "targetParent": "",
+                    "title": "{i18n>xtit.createMalfunctionReport}"
+                },
+                "manageJob": {
+                    "viewName": "MalfunctionReportList",
+                    "viewId": "malfuncManageViewJobList",
+                    "viewLevel": 1,
+                    "targetParent": "",
+                    "title": "{i18n>xtit.manageMalfunctionReports}"
+                },
+                "manageWorkItem": {
+                    "viewName": "JobList",
+                    "viewId": "malfuncManageViewWorkItemList",
+                    "viewLevel": 1,
+                    "targetParent": "",
+                    "title": "{i18n>xtit.manageMaintenanceJobs}"
+                },
+                "displayJob": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "viewName": "JobObjectPage",
+                    "viewId": "malfuncManageViewJobObjectPage",
+                    "viewLevel": 3,
+                    "title": "{i18n>xtit.processMalfunctionReport}"
+                },
+                "editNotificationHeader": {
+                    "viewType": "XML",
+                    "transition": "show",
+                    "viewName": "fragment.EditJobHeaderDialog",
+                    "viewLevel": 4,
+                    "controlAggregation": "dependents",
+                    "targetParent": "pmMalfunctionManageAppContainer",
+                    "controlId": "malfuncManageObjectPage",
+                    "parent": "displayJob"
+                },
+                "editWorkItem": {
+                    "viewType": "XML",
+                    "transition": "show",
+                    "clearAggregation": true,
+                    "viewName": "fragment.EditWorkItemDialog",
+                    "viewLevel": 4,
+                    "controlAggregation": "dependents",
+                    "targetParent": "pmMalfunctionManageAppContainer",
+                    "controlId": "malfuncManageObjectPage",
+                    "parent": "displayJob"
+                },
+                "selectParts": {
+                    "viewName": "SelectParts",
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "viewLevel": 4
+                },
+                "editPart": {
+                    "viewType": "XML",
+                    "transition": "show",
+                    "clearAggregation": true,
+                    "viewName": "fragment.EditPartDialog",
+                    "viewLevel": 4,
+                    "controlAggregation": "dependents",
+                    "targetParent": "pmMalfunctionManageAppContainer",
+                    "controlId": "malfuncManageObjectPage",
+                    "parent": "displayJob"
+                },
+                "addMalfunctionDetails": {
+                    "viewType": "XML",
+                    "transition": "show",
+                    "clearAggregation": true,
+                    "viewName": "fragment.CreateMalfunctionDetailsDialog",
+                    "viewLevel": 4,
+                    "controlAggregation": "dependents",
+                    "targetParent": "pmMalfunctionManageAppContainer",
+                    "controlId": "malfuncManageObjectPage",
+                    "parent": "displayJob"
+                },
+                "editMalfunctionDetails": {
+                    "viewType": "XML",
+                    "transition": "show",
+                    "clearAggregation": true,
+                    "viewName": "fragment.EditMalfunctionDetailsDialog",
+                    "viewLevel": 4,
+                    "controlAggregation": "dependents",
+                    "targetParent": "pmMalfunctionManageAppContainer",
+                    "controlId": "malfuncManageObjectPage",
+                    "parent": "displayJob"
+                },
+                "notFound": {
+                    "viewName": "NotFound",
+                    "transition": "show"
+                },
+                "errorMessage": {
+                    "viewName": "ErrorMessage",
+                    "transition": "show"
+                }
+            }
+        },
+        "dependencies": {
+            "minUI5Version": "1.71.3",
+            "libs": {
+                "sap.ui.core": {
+                    "lazy": false
+                },
+                "sap.m": {
+                    "lazy": false
+                },
+                "sap.ui.layout": {
+                    "lazy": false
+                },
+                "sap.uxap": {
+                    "lazy": false
+                },
+                "sap.ui.comp": {
+                    "lazy": false
+                },
+                "sap.ui.generic.app": {
+                    "lazy": false
+                },
+                "sap.ushell": {
+                    "lazy": false
+                },
+                "sap.ndc": {
+                    "lazy": true
+                },
+                "sap.ui.table": {
+                    "lazy": false
+                },
+                "sap.f": {
+                    "lazy": false
+                },
+                "sap.ui.unified": {
+                    "lazy": false
+                }
+            }
+        },
+        "componentUsages": {
+            "attachmentReuseComponent": {
+                "name": "zi2d.eam.malfunction.manages1.component.attachment"
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "services": {
+            "ShellUIService": {
+                "lazy": false,
+                "factoryName": "sap.ushell.ui5service.ShellUIService",
+                "settings": {
+                    "setHierarchy": "auto",
+                    "setTitle": "auto"
+                }
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zi2d.eam.malfunction.manages1.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "malfunctionManage",
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "ZEAM_OBJPG_MAINTNOTIFCAT_SRV": {
+                "dataSource": "ZEAM_OBJPG_MAINTNOTIFCAT_SRV",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            },
+            "ZEAM_OBJPG_MAINTORDANDOPER_SRV": {
+                "dataSource": "ZEAM_OBJPG_MAINTORDANDOPER_SRV",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            },
+            "malfunctionManage": {
+                "dataSource": "malfunctionManage",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            },
+            "ZEAM_NTF_CREATE_SRV": {
+                "dataSource": "ZEAM_NTF_CREATE_SRV",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            }
+        },
+        "resources": {
+            "js": [{
+                "uri": "./lib/zxingjs0153.min.js"
+            }],
+            "css": [{
+                "uri": "css/style.css"
+            }]
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<mvc:View controllerName="zi2d.eam.malfunction.manages1.controller.subview.WorkItemList" xmlns:layout="sap.ui.layout" xmlns:navpopover="sap.ui.comp.navpopover"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.ui.comp.smarttable" xmlns:util="zi2d.eam.malfunction.manages1.util">
+	<SmartTable demandPopin="true" header="{i18n>xtit.work}" id="malfuncManageWorkItemTable" entitySet="ZC_MaintOrderOperationTP"
+		useVariantManagement="true" persistencyKey="malfuncManageWorkItemTableVariantKey"
+		requestAtLeastFields="MaintenanceOrderSubOperation,MaintenanceOrder,MaintenanceOrderOperation,MaintOrderOperationInternalID"
+        initiallyVisibleFields="MaintenanceOrderOperation,OperationWorkCenter,IsFinallyConfirmed"
+        tableType="ResponsiveTable" useExportToExcel="false" noData="{= ${app>/hasOrderAssigned} ? null : ${i18n>ymsg.noWorkData} }"
+		afterVariantApply="onAfterVariantApplied" afterVariantInitialise="onAfterVariantInitialized" beforeRebindTable="onBeforeRebindTable">
+		<customToolbar>
+			<m:OverflowToolbar design="Transparent">
+				<m:ToolbarSpacer/>
+				<m:OverflowToolbarButton icon="sap-icon://add" text="{i18n>xbut.addWorkItem}" press="onAddWorkItemPressed"
+					 tooltip="{i18n>xbut.addWorkItem}"/>
+			</m:OverflowToolbar>
+		</customToolbar>
+		<m:Table growing="true" growingScrollToLoad="true" >
+			<m:columns>
+				<m:Column customData:p13nData='\{"columnKey": "_Actions", "columnIndex" : "99"}' hAlign="End" 
+                id="malfuncManageWorkItemTableActions">
+					<m:Text text="{i18n>xtit.actions}"/>
+				</m:Column>
+			</m:columns>
+			<m:items>
+				<m:ColumnListItem>
+					<m:cells>
+						<layout:HorizontalLayout >
+							<m:Button icon="sap-icon://edit" tooltip="{i18n>xbut.Plan}" type="Transparent" press="onEditWorkItemPressed"
+								visible="{= !${app>/isInConfirmationMode} }"/>
+                            <!-- visible="{app>/isInConfirmationMode}" onAddTimeConfirmationPressed onCreateTimeConfirmation-->
+							<m:Button icon="sap-icon://create-entry-time" tooltip="{i18n>xbut.Confirm}" type="Transparent" press="onCreateTimeConfirmation"
+								/>
+							<m:Button icon="sap-icon://sys-cancel" tooltip="{i18n>xbut.Delete}" type="Transparent" press="onDeleteWorkItemPressed"/>
+						</layout:HorizontalLayout>
+					</m:cells>
+				</m:ColumnListItem>
+			</m:items>
+		</m:Table>
+	</SmartTable>
+</mvc:View>

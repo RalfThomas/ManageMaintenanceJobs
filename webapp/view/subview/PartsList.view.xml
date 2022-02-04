@@ -1,0 +1,36 @@
+<mvc:View xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:layout="sap.ui.layout" xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.ui.comp.smarttable" xmlns:core="sap.ui.core" xmlns:ndc="sap.ndc"
+	controllerName="zi2d.eam.malfunction.manages1.controller.subview.PartsList">
+	<SmartTable id="malfuncManagePartsTable" demandPopin="true" entitySet="ZC_MaintOrderComponentTP" header="{i18n>xtit.parts}"
+		useVariantManagement="true" persistencyKey="malfuncManagePartsTableVariantKey" tableType="ResponsiveTable" useExportToExcel="false"
+		noData="{= ${app>/isOrderEditAllowed} ? ${i18n>ymsg.noPartsData} : null }" beforeRebindTable="onBeforeRebindTable"
+		requestAtLeastFields="MaintenanceOrder,MaintenanceOrderOperation,MaintenanceOrderComponent,Material"
+        initiallyVisibleFields="Material,MaintenanceOrderOperation,StorageLocation,RequirementQuantityInBaseUnit">
+		<customToolbar>
+			<m:OverflowToolbar design="Transparent">
+				<m:ToolbarSpacer/>
+                <!-- visible="{= ${appView>/WorkItems}.length > 0}" -->
+                <m:OverflowToolbarButton icon="sap-icon://add" text="{i18n>xbut.addPart}" press="onAddMaterial"  tooltip="{i18n>xbut.addPart}"
+                />
+			</m:OverflowToolbar>
+		</customToolbar>
+		<m:Table>
+			<m:columns>
+				<m:Column customData:p13nData='\{"columnKey": "_Actions", "columnIndex" : "99"}' hAlign="End" id="malfuncManagePartsTableColumnActions"
+					>
+					<m:Text text="{i18n>xtit.actions}"/>
+				</m:Column>
+			</m:columns>
+			<m:items>
+				<m:ColumnListItem>
+					<m:cells>
+						<layout:HorizontalLayout >
+							<m:Button icon="sap-icon://edit" type="Transparent" press="onEditPartPressed"/>
+							<m:Button icon="sap-icon://sys-cancel" type="Transparent" press="onDeletePartPressed"/>
+						</layout:HorizontalLayout>
+					</m:cells>
+				</m:ColumnListItem>
+			</m:items>
+		</m:Table>
+	</SmartTable>
+</mvc:View>

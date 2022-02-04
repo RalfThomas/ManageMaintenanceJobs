@@ -1,0 +1,4 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<MessagePage title="{i18n>xtit.error}" icon="sap-icon://message-error" text="{i18n>ymsg.internalError}"
+		description="{i18n>ymsg.pleaseTryAgainLater}" showNavButton="false" showHeader="false" />
+</mvc:View>

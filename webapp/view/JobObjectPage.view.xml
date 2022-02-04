@@ -1,0 +1,244 @@
+<mvc:View controllerName="zi2d.eam.malfunction.manages1.controller.JobObjectPage"
+	xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:layout="sap.ui.layout" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:smartfield="sap.ui.comp.smartfield" 
+    xmlns:smartform="sap.ui.comp.smartform" xmlns="sap.uxap"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+    xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<ObjectPageLayout editHeaderButtonPress="onEditHeaderButtonPressed" enableLazyLoading="true" id="malfuncManageObjectPage" flexEnabled="true"
+		showEditHeaderButton="{app>/isNotificationEditAllowed}" upperCaseAnchorBar="false" useTwoColumnsForLargeScreen="true"
+		showFooter="{app>/isFooterVisible}">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="{NotificationText}" objectSubtitle="{MaintenanceNotification}">
+			
+			</ObjectPageHeader>
+		</headerTitle>
+		 <headerContent>
+			<!-- <layout:VerticalLayout>
+				<m:ObjectStatus text="{to_OverallJobStatus/to_OverallStatus/EAMOverallStatus_Text}"
+					title="{/#I_MaintenanceJobOverallStatusType/EAMOverallObjectStatus/@sap:label}"/>
+			</layout:VerticalLayout> -->
+             <layout:VerticalLayout>
+				<m:ObjectStatus text="{appView>/MalfunctionReportWorkItem/NotifProcessingPhase} ({appView>/MalfunctionReportWorkItem/NotifProcessingPhaseDescERP})"
+					title="{/#ZC_MalfunctionReportWorkItemType/NotifProcessingPhase/@sap:label}"/>
+                <m:ObjectStatus text="{MaintenanceOrder}"
+					title="{/#ZC_MalfunctionReportWorkItemType/MaintenanceOrder/@sap:label}"/>
+			</layout:VerticalLayout>
+			<layout:VerticalLayout>
+				<m:ObjectStatus text="{ReportedByUser}" title="{ReportedByUser/#@sap:label}"/>
+				<m:ObjectStatus text="{path : 'NotificationCreationDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"
+					title="{NotificationCreationDate/#@sap:label}"/>
+			</layout:VerticalLayout>
+            <layout:VerticalLayout>
+				<m:ObjectStatus title="{/#ZC_MalfunctionReportWorkItemType/BasisStartDate/@sap:label}"
+                                text="{path : 'appView>/MalfunctionReportWorkItem/BasisStartDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"
+                 />
+				<m:ObjectStatus title="{/#ZC_MalfunctionReportWorkItemType/BasisFinishDate/@sap:label}"
+                                text="{path : 'appView>/MalfunctionReportWorkItem/BasisFinishDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"
+				/>
+			</layout:VerticalLayout>
+            <layout:VerticalLayout>
+				<m:ObjectStatus title="{/#ZC_MalfunctionReportWorkItemType/ScheduledStartDate/@sap:label}"
+                                text="{path : 'appView>/MalfunctionReportWorkItem/ScheduledStartDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"
+				/>
+                <m:ObjectStatus title="{/#ZC_MalfunctionReportWorkItemType/ScheduledFinishDate/@sap:label}"
+                                text="{path : 'appView>/MalfunctionReportWorkItem/ScheduledFinishDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"
+					            />
+			</layout:VerticalLayout>
+		</headerContent> 
+		<sections>
+			 <ObjectPageSection title="{i18n>xtit.jobDetails}" id="malfuncManageJobDetailsSection" titleUppercase="false">
+				<subSections>
+                    <!-- Work ZC_MaintOrderOperationTP -->
+					<ObjectPageSubSection id="malfuncManageObjectPageWorkSection">
+						<customAnchorBarButton>
+							<m:Button text="{i18n>xtit.work}"/>
+						</customAnchorBarButton>
+						<mvc:XMLView viewName="zi2d.eam.malfunction.manages1.view.subview.WorkItemList"/>
+					</ObjectPageSubSection>
+                    <!-- Parts ZC_MaintOrderComponentTP -->
+					 <ObjectPageSubSection id="malfuncManageObjectPagePartsSection">
+						<customAnchorBarButton>
+							<m:Button text="{i18n>xtit.parts}"/>
+						</customAnchorBarButton>
+						<mvc:XMLView viewName="zi2d.eam.malfunction.manages1.view.subview.PartsList"/>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection> 
+             <!-- Details zum technischen Objekt -->
+            <ObjectPageSection title="{/#ZC_TechnicalObjectType/TechnicalObject/@sap:label}" id="malfuncManageTechObjSection" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection>
+                    <layout:VerticalLayout width="60%">
+                    <!-- intro="{= ${appView>/TechnicalObject/CategoryDescription} + ' (' + ${appView>/TechnicalObject/Category} + ')'}" -->
+                         <m:ObjectHeader 
+                            visible="{appView>/VisTechnicalObject}"
+                            icon="sap-icon://functional-location"
+                            title="{appView>/TechnicalObject/TechnicalObjectNumber}" 
+                            titleActive="false"
+                            intro="{appView>/TechnicalObject/TechnicalObjectDescription}"
+                            responsive="true"/> 
+                        <f:SimpleForm  
+                            title="{i18n>xtit.technicalObjectDetails}"
+                            width="100%"
+                            editable="false" 
+                            layout="ResponsiveGridLayout" 
+                            class="createLayout"
+                            labelSpanL="2" 
+                            labelSpanM="2" 
+                            emptySpanL="0" 
+                            emptySpanM="0" 
+                            columnsL="1" 
+                            columnsM="1">
+        			<f:content>        			    
+        			    
+        			    <!-- Technical Object Description -->
+        				<!-- <m:Label 
+        					id="pmNotifLabelTechnicalObjectDescription"
+        					text="{ZEAM_NTF_CREATE_SRV>/#TechnicalObject/TechnicalObjectDescription/@sap:label}"
+        					visible="{path: 'appView>/TechnicalObject/TechnicalObjectDescription', formatter: '.formatter.checkForValidValue'}"/>
+        				<m:Text text="{appView>/TechnicalObject/TechnicalObjectDescription}" 
+        				        visible="{path: 'appView>/TechnicalObject/TechnicalObjectDescription', formatter: '.formatter.checkForValidValue'}"/> -->
+        				
+        				<!-- Technical Object Type -->
+                        <!-- <m:Label
+                        	id="pmNotifLabelTechnicalObjectType"
+                        	text="{ZEAM_NTF_CREATE_SRV>/#TechnicalObject/ObjectType/@sap:label}"
+        					visible="{path: 'appView>/TechnicalObject/ObjectType', formatter: '.formatter.checkForValidValue'}"/>
+        				<m:Text text="{= ${appView>/TechnicalObject/ObjectTypeDescription} + ' (' + ${appView>/TechnicalObject/ObjectType} + ')'}"
+        				        visible="{path: 'appView>/TechnicalObject/ObjectType', formatter: '.formatter.checkForValidValue'}"/>        				        -->
+
+        				 <!-- Plant section -->
+        				<m:Label
+        					id="pmNotifLabelPlantSection"
+        					text="{ZEAM_NTF_CREATE_SRV>/#TechnicalObject/PlantSection/@sap:label}"
+        					visible="{path: 'appView>/TechnicalObject/PlantSection', formatter: '.formatter.checkForValidValue'}"/>
+        				<m:Text text="{appView>/TechnicalObject/PlantSection}"
+        				        visible="{path: 'appView>/TechnicalObject/PlantSection', formatter: '.formatter.checkForValidValue'}"/>
+
+        				 <!-- Model Number -->
+        				<m:Label
+        					id="pmNotifLabelModelNumber"
+        					text="{ZEAM_NTF_CREATE_SRV>/#TechnicalObject/ModelNumber/@sap:label}"
+        					visible="{path: 'appView>/TechnicalObject/ModelNumber', formatter: '.formatter.checkForValidValue'}"/>
+        				<m:Text text="{appView>/TechnicalObject/ModelNumber}"
+        				        visible="{path: 'appView>/TechnicalObject/ModelNumber', formatter: '.formatter.checkForValidValue'}"/>
+
+                        <!-- Manufacturer -->				
+        				<m:Label
+        					id="pmNotifLabelManufacturer"
+        					text="{ZEAM_NTF_CREATE_SRV>/#TechnicalObject/Manufacturer/@sap:label}"
+        					visible="{path: 'appView>/TechnicalObject/Manufacturer', formatter: '.formatter.checkForValidValue'}"/>
+        				<m:Text   text="{appView>/TechnicalObject/Manufacturer}"
+        				        visible="{path: 'appView>/TechnicalObject/Manufacturer', formatter: '.formatter.checkForValidValue'}"/>
+
+                        <!-- Location -->        				
+        				<m:Label
+        					id="pmNotifLabelLocation"
+        					text="{ZEAM_NTF_CREATE_SRV>/#TechnicalObject/Location/@sap:label}"
+        					visible="{path: 'appView>/TechnicalObject/Location', formatter: '.formatter.checkForValidValue'}"/>
+        				<m:Text text="{appView>/TechnicalObject/Location}"
+        				        visible="{path: 'appView>/TechnicalObject/Location', formatter: '.formatter.checkForValidValue'}"/>
+                        
+                        <!-- Room -->        				
+        				<m:Label
+        					id="pmNotifLabelRoom"
+        					text="{ZEAM_NTF_CREATE_SRV>/#TechnicalObject/Room/@sap:label}"
+        					visible="{path: 'appView>/TechnicalObject/Room', formatter: '.formatter.checkForValidValue'}"/>
+        				<m:Text text="{appView>/TechnicalObject/Room}"
+        				        visible="{path: 'appView>/TechnicalObject/Room', formatter: '.formatter.checkForValidValue'}"/>
+
+            			
+        				<!--Technical Object Additional Documents (TechObAttachments) -->
+        				<m:Label
+        					id="pmNotifLabelAdditionalDocuments"
+        					text="{i18n>xfld.addDocuments}"/>
+        				<l:VerticalLayout>
+    						<l:content>
+                                <m:Text text="{i18n>xfld.noDocuments}" visible="{= ${appView>/TechObAttachments}.length + '' === '0'}"/>
+                                <l:ResponsiveFlowLayout xmlns="sap.ui.layout" content="{appView>/TechObAttachments}" responsive="true">
+                                    <content>
+                                    <m:ObjectListItem
+                                            type="Active"
+                                            icon="{parts : [{path : 'appView>content_type'}], formatter : '.formatter.formatAttachmentIcon'}"
+                                            press="onTechObAttachmentClicked"
+                                            tooltip="{appView>Filename}"
+                                            customData:url="{appView>url}" >
+                                        <m:attributes>
+                                            <m:ObjectAttribute text="{appView>Filename}"/>
+                                        </m:attributes>         
+                                    </m:ObjectListItem>
+                                    </content>
+                                </l:ResponsiveFlowLayout>  
+    						</l:content>
+					    </l:VerticalLayout>
+        			</f:content>
+        		</f:SimpleForm>
+                    </layout:VerticalLayout>    
+                    </ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+            <!-- Long Text -->
+            <ObjectPageSection title="{i18n>xtit.longtext}" id="malfuncManageLOngTextSection" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection>                         
+                        <m:FlexBox width="100%" alignItems="End" direction="Column" >	
+                            <m:OverflowToolbar design="Transparent">
+                                <m:ToolbarSpacer/>
+                                <m:OverflowToolbarButton icon="sap-icon://add" press="onAddNotifLongTextPressed"
+                                    />
+                            </m:OverflowToolbar>				                              
+                            <m:FlexBox width="100%" alignItems="Center">
+                                <m:TextArea class="sapMLIBContent" 
+                                            value="{KommentarModel>/MaintNotificationLongText}" 
+                                            maxLength="1333" growing="true" width="100%" 
+                                            rows="6"
+                                            height="auto" editable="false">
+                                    <m:layoutData>
+                                        <m:FlexItemData growFactor="3" />
+                                    </m:layoutData>
+                                </m:TextArea>
+                            </m:FlexBox>   
+                        </m:FlexBox>  
+                    </ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<!-- Notification Attachments -->
+			<ObjectPageSection title="{i18n>xtit.attachments}" id="malfuncManageAttachmentsSection" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection>
+						<mvc:XMLView viewName="zi2d.eam.malfunction.manages1.view.subview.Attachments" id="malfuncManageAttachmentsSubSection"/>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+            <!-- Order Attachments -->
+			<ObjectPageSection visible="{= ${appView>/OrderAttachmentSet}.length + '' > '0'}"
+                                title="{i18n>xtit.orderattachments}" 
+                                id="malfuncManageOrderAttachmentsSection" 
+                                titleUppercase="false">
+				<subSections>
+                    <ObjectPageSubSection>
+                        <m:UploadCollection id="fileUpload" uploadEnabled="false" uploadButtonInvisible="true"
+                                            items="{ path: 'appView>/OrderAttachmentSet', templateShareable: false }">
+                            <m:items>
+                                <m:UploadCollectionItem 
+                                        contributor="{appView>CreatedBy}"
+                                        url="{appView>url}"
+                                        uploadedDate="{ path: 'appView>CreatedAt', 
+                                                        type: 'sap.ui.model.type.Date',
+                                                        formatOptions: {
+                                                            style: 'full'
+                                                        }}"
+                                        fileName="{appView>Filename}" enableEdit="false"
+                                        visibleDelete="false" visibleEdit="false" enableDelete="false" >
+                                        
+                                </m:UploadCollectionItem>
+                            </m:items>
+                        </m:UploadCollection>
+                    </ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

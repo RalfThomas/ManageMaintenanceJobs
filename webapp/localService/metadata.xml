@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://smiwddwd3400:44306/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='GW_PP2_LANDSCAPE')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZEAM_MALFUNCTION_MANAGE_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="C_MaintNotificationTP" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceNotification"/>
+                </Key>
+                <Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Notification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintNotificationForEdit" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Notification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TechnicalObject" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HierarchyNodeLevel" Type="Edm.Byte" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TechnicalObjectForEdit" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="EAMS_TECH_OBJ_CONV" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintPriority" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintPriorityType" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="PriorityType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotificationType" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Notification Ty" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotifProcessingPhase" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Notif. Phase" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Created at" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReportedByUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Reported by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotificationText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrder" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequiredStartDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Req. Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequiredStartTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Req. start time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequiredEndDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Required End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequiredEndTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Req. end time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotificationCreationDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Notif.date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotificationCreationTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Notif. Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotificationReferenceDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Reference date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotificationReferenceTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="ReferenceTime" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotificationCompletionDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Completn date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompletionTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Completion time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintNotifInternalID" Type="Edm.String" MaxLength="22" sap:unicode="false" sap:label="Object number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotificationTimeZone" Type="Edm.String" MaxLength="6" sap:unicode="false" sap:label="Notif.time.zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkCenterInternalID" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Work Center" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceworkcenterplantMaintenanceWor" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Plt for WorkCtr" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkCenterTypeCode" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Object Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintNotificationCatalog" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Catalog type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintNotificationCode" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Coding" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintNotificationCodeGroup" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Code group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsDeleted" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Deleted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsCompleted" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Completed" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MalfunctionEffect" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Effect" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LocationDescription" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintnotifsourceapplicationMaintNotifSou" Type="Edm.String" MaxLength="6" sap:unicode="false" sap:label="Source Application" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MalfunctionStartDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Malfunct. start" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MalfunctionStartTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Start Malfn (T)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MalfunctionEndDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Malfunct.end" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MalfunctionEndTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Malfunction end" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceObjectIsDown" Type="Edm.Boolean" sap:unicode="false" sap:label="Breakdown" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CatalogProfile" Type="Edm.String" MaxLength="9" sap:unicode="false" sap:label="Catalog profile" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReporterFullName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="C_MaintOrderTP" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceOrder"/>
+                </Key>
+                <Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrderForEdit" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TechnicalObject" Type="Edm.String" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintPriorityType" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="PriorityType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintPriority" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceProcessingPhase" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Phase" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintObjectLocAcctAssgmtNmbr" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Loc/AccAssmt" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Notification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Equipment" Type="Edm.String" MaxLength="18" sap:unicode="false" sap:label="Equipment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceItem" Type="Edm.String" MaxLength="16" sap:unicode="false" sap:label="MaintItem" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Assembly" Type="Edm.String" MaxLength="18" sap:unicode="false" sap:label="Assembly" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SerialNumber" Type="Edm.String" MaxLength="18" sap:unicode="false" sap:label="Serial Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenancePlanningPlant" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Planning plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenancePlannerGroup" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Planner group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationSystemCondition" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="SystemCondition" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceRevision" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Revision" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenancePlan" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="MaintenancePlan" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderRoutingNumber" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Plan no.f.oper." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrderType" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Order Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceordercategoryMaintenanceOrder" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Order Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrderDesc" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Order Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrdBasicStartDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Bas. Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrdBasicEndDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Basic fin. date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrderInternalID" Type="Edm.String" MaxLength="22" sap:unicode="false" sap:label="Object number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenancePlant" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="MaintPlant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Controllingarea" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="CO Area" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderSourceApplication" Type="Edm.String" MaxLength="6" sap:unicode="false" sap:label="Source Application" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="to_MaintOrderOperationTP" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderTP_to_MaintOrderOperationTP" FromRole="FromRole_C_MaintOrderTP_to_MaintOrderOperationTP" ToRole="ToRole_C_MaintOrderTP_to_MaintOrderOperationTP"/>
+            </EntityType>
+            <EntityType Name="C_MaintOrderComponentTP" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceOrderComponent"/>
+                    <PropertyRef Name="MaintenanceOrderOperation"/>
+                    <PropertyRef Name="MaintenanceOrder"/>
+                </Key>
+                <Property Name="MaintenanceOrderComponent" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="BOM item" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrderOperation" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Activity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderComponentForEdit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="BOM item" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Reservation" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Reservation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReservationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Item no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReservationType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Record type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ComponentDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Item Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequirementQuantityInBaseUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="BaseUnit" sap:label="Requirement qty" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Base Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Storage Loc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderRoutingNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Plan no.f.oper." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderOperationCounter" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Counter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="QuantityWithdrawnInBaseUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="BaseUnit" sap:label="Withdrawal Qty" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="C_MaintOrderOperationTP" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceOrder"/>
+                    <PropertyRef Name="MaintenanceOrderOperation"/>
+                </Key>
+                <Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrderOperation" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Activity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceOrderSubOperation" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Suboperation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderOperationForEdit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Activity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TechnicalObject" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Tech. Object" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Tech. Obj. Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderRoutingNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Plan no.f.oper." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderOperationCounter" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Counter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationControlKey" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Control key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Opr. short text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Equipment" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Equipment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FunctionalLocation" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Functional loc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationWorkCenterInternalID" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationWorkCenter" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Work Center" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationWorkCenterTypeCode" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationPlannedWork" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="1" sap:unicode="false" sap:unit="OperationPlannedWorkUnit" sap:label="Work" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationPlannedWorkUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit for work" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="OperationDuration" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="1" sap:unicode="false" sap:unit="OperationDurationUnit" sap:label="Normal duration" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationDurationUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Norm.duratn un." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="OperationCalculationControl" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Calculation key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintOrderOperationInternalID" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="Object number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ConfirmationTotalQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="OperationPlannedWorkUnit" sap:label="Tot. Act. W." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsFinallyConfirmed" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Final Confirm." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OperationSupplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="I_MaterialType" sap:label="Material" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="Material_Text" sap:label="Material"/>
+                <Property Name="MaterialManufacturerPartNumber" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Mfr Part Number"/>
+                <Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaterialType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Material Type"/>
+                <Property Name="MaterialGroup" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Material Group"/>
+                <Property Name="MaterialBaseUnit" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="MaterialGrossWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="MaterialWeightUnit" sap:label="Gross Weight"/>
+                <Property Name="MaterialNetWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="MaterialWeightUnit" sap:label="Net Weight"/>
+                <Property Name="MaterialWeightUnit" Type="Edm.String" MaxLength="3" sap:label="Weight Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="MaterialManufacturerNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Manufacturer"/>
+            </EntityType>
+            <EntityType Name="ZC_MaintOrderTPType" sap:label="Maintenance Order with Draft" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceOrder"/>
+                </Key>
+                <Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="MaintenanceOrderDesc" sap:label="Order"/>
+                <Property Name="MaintenanceOrderForEdit" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="MaintenanceOrderDesc" sap:label="Order"/>
+                <Property Name="TechnicalObject" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/>
+                <Property Name="MaintPriorityType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Priority type"/>
+                <Property Name="MaintPriority" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Priority"/>
+                <Property Name="MaintenanceProcessingPhase" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Phase"/>
+                <Property Name="MaintObjectLocAcctAssgmtNmbr" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Loc/Acct Assignment"/>
+                <Property Name="MaintenanceNotification" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Notification"/>
+                <Property Name="Equipment" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment"/>
+                <Property Name="MaintenanceItem" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Maintenance item"/>
+                <Property Name="Assembly" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Assembly"/>
+                <Property Name="SerialNumber" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Serial Number"/>
+                <Property Name="MaintenancePlanningPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Planning plant"/>
+                <Property Name="MaintenancePlannerGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Planner group"/>
+                <Property Name="OperationSystemCondition" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="System Condition"/>
+                <Property Name="MaintenanceRevision" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Revision"/>
+                <Property Name="MaintenancePlan" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Maintenance Plan"/>
+                <Property Name="MaintOrderRoutingNumber" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Opertn task list no."/>
+                <Property Name="MaintenanceOrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Order Type"/>
+                <Property Name="MaintenanceOrderCategory" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Order Category"/>
+                <Property Name="MaintenanceOrderDesc" Type="Edm.String" MaxLength="40" sap:label="Order Description"/>
+                <Property Name="MaintOrdBasicStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Basic Start Date"/>
+                <Property Name="MaintOrdBasicEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Basic finish date"/>
+                <Property Name="MaintenanceOrderInternalID" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="MaintenancePlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Maintenance plant"/>
+                <Property Name="ControllingArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Controlling Area"/>
+                <Property Name="MaintOrderSourceApplication" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Source Application"/>
+                <NavigationProperty Name="to_MaintOrderOperationTP" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_F64534EEB9F9896D216A8118D33CAEA6" FromRole="FromRole_assoc_F64534EEB9F9896D216A8118D33CAEA6" ToRole="ToRole_assoc_F64534EEB9F9896D216A8118D33CAEA6"/>
+            </EntityType>
+            <EntityType Name="ZC_MalfunctionreportType" sap:label="Repair Malfunction Job List" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceNotification"/>
+                </Key>
+                <Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="NotificationText" sap:label="Issue"/>
+                <Property Name="NotificationText" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="NotificationType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Notification Type"/>
+                <Property Name="MaintNotifInternalID" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="MaintenanceOrder" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="MaintenanceOrderDesc" sap:label="Order"/>
+                <Property Name="MaintenanceOrderDesc" Type="Edm.String" MaxLength="40" sap:label="Order Description"/>
+                <Property Name="WorkCenterInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Work Center"/>
+                <Property Name="WorkCenter" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:text="WorkCenter_Text" sap:label="Work Center"/>
+                <Property Name="WorkCenter_Text" Type="Edm.String" MaxLength="40" sap:label="Work Center Text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaintenanceWorkCenterPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Work Center Plant"/>
+                <Property Name="MaintPriority" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Priority"/>
+                <Property Name="TechnicalObject" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase"/>
+                <Property Name="TechObjIsEquipOrFuncnlLocDesc" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/>
+                <Property Name="Equipment" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment"/>
+                <Property Name="FunctionalLocationLabelName" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Functional Location"/>
+                <Property Name="TechnicalObjectLabel" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="EAMS_TECH_OBJ_CONV"/>
+                <Property Name="PersonResponsible" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Processed By"/>
+                <Property Name="MaintNotifSourceApplication" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Source Application"/>
+                <Property Name="ReporterFullName" Type="Edm.String" MaxLength="80" sap:display-format="UpperCase" sap:label="Reported by"/>
+                <Property Name="MalfunctionEffect" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Effect"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By"/>
+                <Property Name="MalfunctionStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Malfunction Start Date"/>
+                <Property Name="MalfunctionStartTime" Type="Edm.Time" Precision="0" sap:label="Malfunction Start Time"/>
+                <Property Name="MalfunctionEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Malfunction End Date"/>
+                <Property Name="MalfunctionEndTime" Type="Edm.Time" Precision="0" sap:label="Malfunction End Time"/>
+                <Property Name="NotificationCreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Notification date"/>
+                <Property Name="NotificationCreationTime" Type="Edm.Time" Precision="0" sap:label="Notification Time"/>
+                <Property Name="NotificationTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Notif. time zone"/>
+                <Property Name="NotificationDateTime" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="Reported On"/>
+                <Property Name="MalfunctionStartDateTime" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="Malfunction Start"/>
+                <Property Name="MalfunctionEndDateTime" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="Malfunction End"/>
+                <Property Name="PersonInvolved" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase"/>
+                <Property Name="NotifProcessingPhaseERP" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Notif. status"/>
+            </EntityType>
+            <EntityType Name="ZC_MalfunctionReportWorkItemType" sap:label="Malfunction Report Work Items" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceOrder"/>
+                    <PropertyRef Name="MaintenanceOrderOperation"/>
+                </Key>
+                <Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Order"/>
+                <Property Name="MaintenanceOrderOperation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="OperationDescription" sap:label="Work Item"/>
+                <Property Name="OperationDescription" Type="Edm.String" MaxLength="40" sap:label="Operation short text"/>
+                <Property Name="MaintenanceNotification" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="NotificationText" sap:label="Issue"/>
+                <Property Name="MaintenanceOrderInternalID" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="NotifProcessingPhase" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Status"/>
+                <Property Name="NotifProcessingPhaseDescERP" Type="Edm.String" MaxLength="60" sap:label="Status"/>
+                <Property Name="NotificationText" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="OperationWorkCenter" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Work Center" sap:value-list="standard"/>
+                <Property Name="OperationWorkCenterText" Type="Edm.String" MaxLength="40" sap:label="Work Center Text"/>
+                <Property Name="OperationWorkCenterInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Object ID"/>
+                <Property Name="OperationPlannedWork" Type="Edm.Decimal" Precision="7" Scale="1" sap:unit="OperationPlannedWorkUnit" sap:label="Planned Effort"/>
+                <Property Name="OperationPlannedWorkUnit" Type="Edm.String" MaxLength="3" sap:label="Unit for work" sap:semantics="unit-of-measure"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="MaintOrderOperationInternalID" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TechnicalObjectLabel" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Technical Object"/>
+                <Property Name="TechnicalObject" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/>
+                <NavigationProperty Name="to_WorkCenterVH" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_952E31C7B150E37CB9551FFBADB609A0" FromRole="FromRole_assoc_952E31C7B150E37CB9551FFBADB609A0" ToRole="ToRole_assoc_952E31C7B150E37CB9551FFBADB609A0"/>
+            </EntityType>
+            <EntityType Name="ZC_AllMaterialsMalfuncManageType" sap:label="Materials" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="StorageLocation"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="MaterialName" sap:label="Material"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage Location"/>
+                <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Material Description"/>
+                <Property Name="MaterialType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Material Type"/>
+                <Property Name="MaterialGroup" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Material Group"/>
+                <Property Name="MaterialGrossWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="MaterialWeightUnit" sap:label="Gross Weight"/>
+                <Property Name="MaterialNetWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="MaterialWeightUnit" sap:label="Net Weight"/>
+                <Property Name="MaterialBaseUnit" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="MaterialWeightUnit" Type="Edm.String" MaxLength="3" sap:label="Weight Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="MaterialManufacturerNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Manufacturer"/>
+                <Property Name="MaterialManufacturerPartNumber" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Mfr Part Number"/>
+                <Property Name="AvailabilityCheckType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Availability check"/>
+                <Property Name="RequirementQuantityInBaseUnit" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="MaterialBaseUnit"/>
+                <Property Name="MaterialAvailabilityStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Availability"/>
+            </EntityType>
+            <EntityType Name="ZC_MaterialPlantMalfuncManagVHType" sap:label="Material Plant" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Plant"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name"/>
+            </EntityType>
+            <EntityType Name="ZC_PMWorkCenterVHType" sap:label="Plant Maintenance Work Centers" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WorkCenterInternalID"/>
+                    <PropertyRef Name="WorkCenterTypeCode"/>
+                    <PropertyRef Name="WorkCenter"/>
+                </Key>
+                <Property Name="WorkCenterInternalID" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:text="WorkCenter" sap:label="Object ID"/>
+                <Property Name="WorkCenterTypeCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Object Type"/>
+                <Property Name="WorkCenter" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:text="WorkCenter_Text" sap:label="Work Center"/>
+                <Property Name="WorkCenter_Text" Type="Edm.String" MaxLength="40" sap:label="Work Center Text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name"/>
+                <Property Name="WorkCenterCategoryCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Work Center Category"/>
+            </EntityType>
+            <EntityType Name="ZC_StorageLocationVHType" sap:label="Storage Location Value Help" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StorageLocation"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="StorageLocationName" sap:label="Storage Location"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Material"/>
+                <Property Name="StorageLocationName" Type="Edm.String" MaxLength="16" sap:label="Storage Loc. Name"/>
+            </EntityType>
+            <EntityType Name="ZC_TechnicalObjectType" sap:label="Technical Object" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TechObjectWithLeadingZeros"/>
+                </Key>
+                <Property Name="FunctionalLocation" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Functional Location"/>
+                <Property Name="MainWorkCenterPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="ItemCounter" Type="Edm.Int32"/>
+                <Property Name="TechObjectWithLeadingZeros" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Technical Object"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="132" sap:display-format="UpperCase" sap:label="Tech. Obj. Type"/>
+                <Property Name="TechnicalObject" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Technical Object"/>
+                <Property Name="TechnicalObjectDescription" Type="Edm.String" MaxLength="40" sap:label="Tech. Obj. Desc"/>
+                <Property Name="TechObjIsEquipOrFuncnlLocDesc" Type="Edm.String" MaxLength="40" sap:label="TObj.Type Desc."/>
+                <Property Name="TechnicalObjectCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Equipment category"/>
+                <Property Name="TechnicalObjectCategoryDesc" Type="Edm.String" MaxLength="30" sap:label="Equipment CatDesc."/>
+                <Property Name="TechnicalObjectType" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Technical obj. type"/>
+                <Property Name="TechnicalObjectTypeDesc" Type="Edm.String" MaxLength="20" sap:label="Object type text"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed by"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Changed On"/>
+                <Property Name="AssetManufacturerName" Type="Edm.String" MaxLength="30" sap:label="Manufacturer"/>
+                <Property Name="ManufacturerPartTypeName" Type="Edm.String" MaxLength="20" sap:label="Model number"/>
+                <Property Name="MaintenancePlanningPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Planning plant"/>
+                <Property Name="MainWorkCenter" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Work Center"/>
+                <Property Name="MaintenanceWorkCenter" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Work Center"/>
+                <Property Name="MaintenancePlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Maintenance plant"/>
+                <Property Name="PlantSection" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Plant section"/>
+                <Property Name="AssetLocation" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Location"/>
+                <Property Name="MaintObjectFreeDefinedAttrib" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Sort field"/>
+                <Property Name="BusinessArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Business Area"/>
+                <Property Name="ControllingArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Controlling Area"/>
+                <Property Name="CostCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cost Center"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+                <Property Name="AssetRoom" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Room"/>
+                <Property Name="ABCIndicator" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="ABC indicator"/>
+                <Property Name="MaintenancePlannerGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Planner group"/>
+                <Property Name="CatalogProfile" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Catalog profile"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="AuthorizGroup"/>
+            </EntityType>
+            <EntityType Name="ZC_TechnicalObjectForEditVHType" sap:label="Technical Object Value Help For Edit" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TechnicalObject"/>
+                    <PropertyRef Name="TechObjIsEquipOrFuncnlLoc"/>
+                </Key>
+                <Property Name="TechnicalObject" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Tech. Obj. Type"/>
+                <Property Name="TechnicalObjectLabel" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:text="TechnicalObjectDescription" sap:label="Technical Object"/>
+                <Property Name="FunctionalLocationLabelName" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Functional Location"/>
+                <Property Name="TechnicalObjectDescription" Type="Edm.String" MaxLength="40" sap:label="Tech. Obj. Desc"/>
+                <Property Name="Equipment" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment"/>
+            </EntityType>
+            <EntityType Name="ZI_MaintenanceJobAndWorkItemType" sap:label="Maintenance Job and Work Items" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceJobInternalID"/>
+                    <PropertyRef Name="StatusObject"/>
+                    <PropertyRef Name="ObjectType"/>
+                </Key>
+                <Property Name="MaintenanceJobInternalID" Type="Edm.String" Nullable="false" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="StatusObject" Type="Edm.String" Nullable="false" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="ObjectType" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Object Category"/>
+            </EntityType>
+            <EntityType Name="ZI_MaintenancePlannerGroupType" sap:label="Maintenance Planner Group" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenancePlannerGroup"/>
+                    <PropertyRef Name="MaintenancePlanningPlant"/>
+                </Key>
+                <Property Name="MaintenancePlannerGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="MaintenancePlannerGroupName" sap:label="Planner Group"/>
+                <Property Name="MaintenancePlanningPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Planning plant"/>
+                <Property Name="MaintenancePlannerGroupName" Type="Edm.String" MaxLength="18" sap:label="Planner Group Name"/>
+                <Property Name="MaintPlannerGroupPhoneNumber" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Telephone number"/>
+                <Property Name="MaintenanceOrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Order Type"/>
+                <Property Name="EmailAddress" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+            </EntityType>
+            <EntityType Name="ZI_MaterialStdVHType" sap:label="Material" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="Material_Text" sap:label="Material"/>
+                <Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaterialType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Material Type"/>
+            </EntityType>
+            <EntityType Name="ZI_PMNotificationPhaseType" sap:label="Maintenance Notification Phase" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NotifProcessingPhase"/>
+                </Key>
+                <Property Name="NotifProcessingPhase" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="NotifProcessingPhase_Text" sap:label="Dom. lower value"/>
+                <Property Name="NotifProcessingPhase_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_Text" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_7B3F3A7FB330A553409A361A53CF0625" FromRole="FromRole_assoc_7B3F3A7FB330A553409A361A53CF0625" ToRole="ToRole_assoc_7B3F3A7FB330A553409A361A53CF0625"/>
+            </EntityType>
+            <EntityType Name="ZC_MaintNotificationTPType" sap:label="Maintenance Notification" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceNotification"/>
+                </Key>
+                <Property Name="MaintNotifSourceApplication_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="NotificationText" sap:label="Notification"/>
+                <Property Name="MaintNotificationForEdit" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="NotificationText" sap:label="Notification"/>
+                <Property Name="TechnicalObject" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:value-list="standard"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/>
+                <Property Name="HierarchyNodeLevel" Type="Edm.Byte" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TechnicalObjectForEdit" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="EAMS_TECH_OBJ_CONV"/>
+                <Property Name="MaintPriority" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Priority"/>
+                <Property Name="MaintPriorityType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Priority type"/>
+                <Property Name="NotificationType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Notification Type"/>
+                <Property Name="NotifProcessingPhase" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Notif. Phase" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed by"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On"/>
+                <Property Name="LastChangeTime" Type="Edm.Time" Precision="0"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date"/>
+                <Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Created at"/>
+                <Property Name="ReportedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Reported by"/>
+                <Property Name="NotificationText" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="MaintenanceOrder" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Order"/>
+                <Property Name="RequiredStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Req. Start Date"/>
+                <Property Name="RequiredStartTime" Type="Edm.Time" Precision="0" sap:label="Req. start time"/>
+                <Property Name="RequiredEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Required End Date"/>
+                <Property Name="RequiredEndTime" Type="Edm.Time" Precision="0" sap:label="Req. end time"/>
+                <Property Name="NotificationCreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Notification date"/>
+                <Property Name="NotificationCreationTime" Type="Edm.Time" Precision="0" sap:label="Notification Time"/>
+                <Property Name="NotificationReferenceDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Reference date"/>
+                <Property Name="NotificationReferenceTime" Type="Edm.Time" Precision="0" sap:label="Reference time"/>
+                <Property Name="NotificationCompletionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Completion by date"/>
+                <Property Name="CompletionTime" Type="Edm.Time" Precision="0" sap:label="Completion time"/>
+                <Property Name="MaintNotifInternalID" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="NotificationTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Notif. time zone"/>
+                <Property Name="WorkCenterInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Work Center"/>
+                <Property Name="MaintenanceWorkCenterPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant for work cent."/>
+                <Property Name="WorkCenterTypeCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Object Type"/>
+                <Property Name="MaintNotificationCatalog" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Catalog coding"/>
+                <Property Name="MaintNotificationCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Failure Mode"/>
+                <Property Name="InspectionCodeText" Type="Edm.String" MaxLength="40" sap:label="Code Text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaintNotificationCodeGroup" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Coding"/>
+                <Property Name="InspSpecAddlCodeGroupText" Type="Edm.String" MaxLength="40" sap:label="Code Group Text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsDeleted" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Deleted"/>
+                <Property Name="IsCompleted" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Completed"/>
+                <Property Name="MalfunctionEffect" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Effect"/>
+                <Property Name="LocationDescription" Type="Edm.String" MaxLength="50"/>
+                <Property Name="MaintNotifSourceApplication" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:field-control="MaintNotifSourceApplication_fc" sap:label="Source Application"/>
+                <Property Name="MalfunctionStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Malfunction start"/>
+                <Property Name="MalfunctionStartTime" Type="Edm.Time" Precision="0" sap:label="Start Malfn (T)"/>
+                <Property Name="MalfunctionEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Malfunction end"/>
+                <Property Name="MalfunctionEndTime" Type="Edm.Time" Precision="0" sap:label="Malfunction end"/>
+                <Property Name="MaintenanceObjectIsDown" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Breakdown"/>
+                <Property Name="CatalogProfile" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Catalog profile"/>
+                <Property Name="ReporterFullName" Type="Edm.String" MaxLength="80" sap:display-format="UpperCase" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_MaintNotifLongTextTP" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_60BED6368A923D10732F15E9069BE50C" FromRole="FromRole_assoc_60BED6368A923D10732F15E9069BE50C" ToRole="ToRole_assoc_60BED6368A923D10732F15E9069BE50C"/>
+                <NavigationProperty Name="to_MaintOrderTP" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_C9D79B5E338F1114936679AD6C9DBD44" FromRole="FromRole_assoc_C9D79B5E338F1114936679AD6C9DBD44" ToRole="ToRole_assoc_C9D79B5E338F1114936679AD6C9DBD44"/>
+                <NavigationProperty Name="to_TechnicalObject" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_C89DE262A46DC4045F2A4865C89831D6" FromRole="FromRole_assoc_C89DE262A46DC4045F2A4865C89831D6" ToRole="ToRole_assoc_C89DE262A46DC4045F2A4865C89831D6"/>
+            </EntityType>
+            <EntityType Name="ZI_PMNotificationPhaseTextType" sap:label="Notification Phase Text" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NotifProcessingPhase"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="NotifProcessingPhase" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Dom. lower value"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Lang."/>
+                <Property Name="NotifProcessingPhaseDesc" Type="Edm.String" MaxLength="60" sap:label="Short Descript."/>
+            </EntityType>
+            <EntityType Name="ZI_PMUnitOfMeasureVHType" sap:label="Unit of measure Value Help" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitOfMeasure"/>
+                </Key>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="UnitOfMeasure_Text" sap:label="Int. Meas. Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="UnitOfMeasure_Text" Type="Edm.String" MaxLength="30" sap:label="Unit text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="UnitOfMeasureTechnicalName" Type="Edm.String" MaxLength="6" sap:label="Technical"/>
+                <Property Name="UnitOfMeasure_E" Type="Edm.String" MaxLength="3" sap:label="Commercial"/>
+                <Property Name="UnitOfMeasureDimension" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Dimension"/>
+                <Property Name="UnitOfMeasureISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO code"/>
+                <Property Name="UnitOfMeasureNumberOfDecimals" Type="Edm.Int16" sap:label="Decimal Rounding"/>
+                <Property Name="UnitOfMeasureDspNmbrOfDcmls" Type="Edm.Int16" sap:label="Decimal Places"/>
+            </EntityType>
+            <EntityType Name="ZI_TechnicalObjectType" sap:label="Technical Object" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TechnicalObject"/>
+                    <PropertyRef Name="TechObjIsEquipOrFuncnlLoc"/>
+                </Key>
+                <Property Name="TechnicalObject" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:text="to_TechObjIsEquipOrFuncnlLoc/TechObjIsEquipOrFuncnlLoc_Text" sap:label="Tech. Obj. Type" sap:value-list="standard"/>
+                <Property Name="TechnicalObjectLabel" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="EAMS_TECH_OBJ_CONV"/>
+                <Property Name="TechnicalObjectCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:value-list="standard"/>
+                <Property Name="Equipment" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment"/>
+                <Property Name="FunctionalLocation" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Functional Location"/>
+                <Property Name="TechnicalObjectType" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Technical obj. type"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed by"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Changed On"/>
+                <Property Name="AssetManufacturerName" Type="Edm.String" MaxLength="30" sap:label="Manufacturer"/>
+                <Property Name="ManufacturerPartTypeName" Type="Edm.String" MaxLength="20" sap:label="Model number"/>
+                <Property Name="MaintenancePlanningPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="to_MaintenancePlanningPlant/PlantName" sap:label="Planning plant" sap:value-list="standard"/>
+                <Property Name="MaintenancePlannerGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="to_MaintenancePlannerGroup/MaintenancePlannerGroupName" sap:label="Planner group" sap:value-list="standard"/>
+                <Property Name="CatalogProfile" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Catalog profile"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="AuthorizGroup"/>
+                <Property Name="WorkCenterInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Work Center"/>
+                <Property Name="WorkCenterTypeCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Object Type"/>
+                <Property Name="MaintObjectLocAcctAssgmtNmbr" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Loc/Acct Assignment"/>
+                <Property Name="ManufacturerCountry" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country of manufact."/>
+                <Property Name="ConstructionYear" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Construction year"/>
+                <Property Name="ConstructionMonth" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Construction month"/>
+                <Property Name="ConstructionMaterial" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Construction type"/>
+                <Property Name="AcquisitionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Acquisition date"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/>
+                <Property Name="AcquisitionValue" Type="Edm.Decimal" Precision="13" Scale="2" sap:unit="Currency" sap:label="Acquisition Value"/>
+                <Property Name="TechnicalObjectSortCode" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Technical IdentNo."/>
+                <Property Name="MaintObjectInternalID" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="SizeOrDimensionText" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Size/dimension"/>
+                <Property Name="InventoryNumber" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Inventory number"/>
+                <Property Name="GrossWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="GrossWeightUnit" sap:label="Weight of object"/>
+                <Property Name="GrossWeightUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of weight" sap:semantics="unit-of-measure"/>
+                <Property Name="ManufacturerPartNmbr" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="ManufactPartNo."/>
+                <Property Name="ManufacturerSerialNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="ManufSerialNumber"/>
+                <Property Name="OperationStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Start-up date"/>
+                <Property Name="FuncLocStrucIdentifyingLevel" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="ILOM_LEVEL_KZ"/>
+                <Property Name="FuncLocStruc2ndIdentifyingLvl" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative"/>
+                <Property Name="FuncLocationStructure" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Structure indicator"/>
+                <Property Name="TechnicalObjectDescription" Type="Edm.String" MaxLength="40" sap:label="Tech. Obj. Desc"/>
+                <Property Name="TechnicalObjectHasLongText" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Long Text"/>
+                <Property Name="SuperiorTechnicalObject" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase"/>
+                <Property Name="SuperiorTechnicalObjectName" Type="Edm.String" MaxLength="40" sap:label="Tech. Obj. Desc"/>
+                <Property Name="SuperiorTechnicalObjectLabel" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="EAMS_TECH_OBJ_CONV"/>
+                <Property Name="SuperiorObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Tech. Obj. Type"/>
+                <Property Name="SuperiorFunctionalLocation" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase"/>
+                <Property Name="IsDeleted" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Deletion Indicator"/>
+                <NavigationProperty Name="to_CreatedByUser" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_BCFC16DC1AFAE294D793D8B062BD5785" FromRole="FromRole_assoc_BCFC16DC1AFAE294D793D8B062BD5785" ToRole="ToRole_assoc_BCFC16DC1AFAE294D793D8B062BD5785"/>
+                <NavigationProperty Name="to_MaintenancePlannerGroup" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_5B0640BCDC5DC9408207252E3126BCB4" FromRole="FromRole_assoc_5B0640BCDC5DC9408207252E3126BCB4" ToRole="ToRole_assoc_5B0640BCDC5DC9408207252E3126BCB4"/>
+                <NavigationProperty Name="to_MaintenancePlanningPlant" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_556BB001B24F5CF74911CA9A79B65BA7" FromRole="FromRole_assoc_556BB001B24F5CF74911CA9A79B65BA7" ToRole="ToRole_assoc_556BB001B24F5CF74911CA9A79B65BA7"/>
+                <NavigationProperty Name="to_TechnicalObjectCategory" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_F7AF1227130A5BFB1A8FE394CEF6B592" FromRole="FromRole_assoc_F7AF1227130A5BFB1A8FE394CEF6B592" ToRole="ToRole_assoc_F7AF1227130A5BFB1A8FE394CEF6B592"/>
+                <NavigationProperty Name="to_TechObjIsEquipOrFuncnlLoc" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_1C9E742BE7C1B09E8C784E7490E865F5" FromRole="FromRole_assoc_1C9E742BE7C1B09E8C784E7490E865F5" ToRole="ToRole_assoc_1C9E742BE7C1B09E8C784E7490E865F5"/>
+            </EntityType>
+            <EntityType Name="ZI_TechnicalObjectCategoryType" sap:label="Technical Object Category" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TechnicalObjectCategory"/>
+                    <PropertyRef Name="TechObjIsEquipOrFuncnlLoc"/>
+                </Key>
+                <Property Name="TechnicalObjectCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Tech. Obj. Category"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Tech. Obj. Type"/>
+            </EntityType>
+            <EntityType Name="ZI_TechnicalObjectTextType" sap:label="Technical Object Text" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TechnicalObject"/>
+                    <PropertyRef Name="TechObjIsEquipOrFuncnlLoc"/>
+                </Key>
+                <Property Name="TechnicalObject" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Technical Object"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Tech. Obj. Type"/>
+                <Property Name="Language" Type="Edm.String" MaxLength="2" sap:label="Language Key"/>
+                <Property Name="TechnicalObjectDescription" Type="Edm.String" MaxLength="40" sap:label="Tech. Obj. Desc"/>
+                <Property Name="IsPrimaryLanguage" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Primary language"/>
+                <Property Name="TechnicalObjectHasLongText" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Long text exists"/>
+            </EntityType>
+            <EntityType Name="ZI_TechObjIsEquipOrFuncnlLocType" sap:label="Technical Object is Equi. or Func. Loc." sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TechObjIsEquipOrFuncnlLoc"/>
+                </Key>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:text="TechObjIsEquipOrFuncnlLoc_Text" sap:label="Tech. Obj. Type"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_SupplierType" sap:label="Supplier" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Supplier"/>
+                </Key>
+                <Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="SupplierName" sap:label="Supplier"/>
+                <Property Name="SupplierAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Account Group"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created on"/>
+                <Property Name="IsOneTimeAccount" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="One-time account"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Authorization"/>
+                <Property Name="VATRegistration" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="VAT Registration No."/>
+                <Property Name="AccountIsBlockedForPosting" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Posting Block"/>
+                <Property Name="TaxJurisdiction" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Tax Jurisdiction"/>
+                <Property Name="CorporateGroup" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Group key"/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Customer"/>
+                <Property Name="Industry" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Industry"/>
+                <Property Name="TaxNumber1" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Tax Number 1"/>
+                <Property Name="TaxNumber2" Type="Edm.String" MaxLength="11" sap:display-format="UpperCase" sap:label="Tax Number 2"/>
+                <Property Name="TaxNumber3" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Tax Number 3"/>
+                <Property Name="TaxNumber4" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Tax Number 4"/>
+                <Property Name="TaxNumber5" Type="Edm.String" MaxLength="60" sap:display-format="UpperCase" sap:label="Tax Number 5"/>
+                <Property Name="PostingIsBlocked" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Posting Block"/>
+                <Property Name="PurchasingIsBlocked" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Purch. block"/>
+                <Property Name="InternationalLocationNumber1" Type="Edm.String" MaxLength="7" sap:display-format="NonNegative" sap:label="Int. location no. 1"/>
+                <Property Name="InternationalLocationNumber2" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative" sap:label="Int. location no. 2"/>
+                <Property Name="InternationalLocationNumber3" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative" sap:label="Check digit"/>
+                <Property Name="ConcatenatedInternationalLocNo" Type="Edm.String" MaxLength="19" sap:display-format="UpperCase"/>
+            </EntityType>
+            <EntityType Name="ZI_UserType" sap:label="User" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UserID"/>
+                </Key>
+                <Property Name="UserID" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User ID"/>
+                <Property Name="UserDescription" Type="Edm.String" MaxLength="80" sap:label="Description"/>
+                <Property Name="IsTechnicalUser" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase"/>
+            </EntityType>
+            <EntityType Name="ZI_WorkCenterTextType" sap:label="Work Center Text" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WorkCenterTypeCode"/>
+                    <PropertyRef Name="WorkCenterInternalID"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="WorkCenterTypeCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Resource Type"/>
+                <Property Name="WorkCenterInternalID" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:text="WorkCenterText" sap:label="Object ID"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language Key"/>
+                <Property Name="WorkCenterText" Type="Edm.String" MaxLength="40" sap:label="Work Center Text"/>
+            </EntityType>
+            <EntityType Name="I_PlantType" sap:label="Plant" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Plant"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name"/>
+                <Property Name="ValuationArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Valuation Area"/>
+                <Property Name="PlantCustomer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Customer no. - plant"/>
+                <Property Name="PlantSupplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor number plant"/>
+                <Property Name="FactoryCalendar" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Factory calendar"/>
+                <Property Name="DefaultPurchasingOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purch. Organization"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales organization"/>
+                <Property Name="AddressID" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Address"/>
+            </EntityType>
+            <EntityType Name="I_StorageLocationType" sap:label="Storage Location" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="StorageLocation"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="StorageLocationName" sap:label="Plant"/>
+                <Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage Location"/>
+                <Property Name="StorageLocationName" Type="Edm.String" MaxLength="16" sap:label="Storage Loc. Name"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+            </EntityType>
+            <EntityType Name="ZC_MaintNotifLongTextTPType" sap:label="Maintenance Notification Long Text" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceNotification"/>
+                </Key>
+                <Property Name="MaintenanceNotification" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Notification"/>
+                <Property Name="TextObjectKey" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Notification"/>
+                <Property Name="Language" Type="Edm.String" MaxLength="2" sap:label="Language Key"/>
+                <Property Name="TextObjectCategory" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Text object"/>
+                <Property Name="TextObjectType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Text ID"/>
+                <Property Name="LongTextIsNotChangeable" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="TRUE"/>
+            </EntityType>
+            <EntityType Name="ZC_MaintOrderComponentTPType" sap:label="Maintenance Order Component with Draft" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceOrderComponent"/>
+                    <PropertyRef Name="MaintenanceOrderOperation"/>
+                    <PropertyRef Name="MaintenanceOrder"/>
+                </Key>
+                <Property Name="MaintenanceOrderComponent" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="Material" sap:label="BOM item"/>
+                <Property Name="MaintenanceOrderOperation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="to_MaintOrderOperationTP/OperationDescription" sap:label="Operation" sap:value-list="standard"/>
+                <Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="to_MaintOrderTP/MaintenanceOrderDesc" sap:label="Order" sap:value-list="standard"/>
+                <Property Name="MaintOrderComponentForEdit" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="BOM item"/>
+                <Property Name="Reservation" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Reservation"/>
+                <Property Name="ReservationItem" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Item no."/>
+                <Property Name="ReservationType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Record type"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:text="to_Material/Material_Text" sap:label="Material" sap:value-list="standard"/>
+                <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ComponentDescription" Type="Edm.String" MaxLength="40" sap:label="Item Text"/>
+                <Property Name="RequirementQuantityInBaseUnit" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="BaseUnit" sap:label="Planned Quantity"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:text="to_UnitOfMeasure/UnitOfMeasure_Text" sap:label="Base Unit of Measure" sap:value-list="standard" sap:semantics="unit-of-measure"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="to_Plant/PlantName" sap:label="Plant" sap:value-list="standard"/>
+                <Property Name="StorageLocation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage Location" sap:value-list="standard"/>
+                <Property Name="MaintOrderRoutingNumber" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Opertn task list no."/>
+                <Property Name="MaintOrderOperationCounter" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Counter"/>
+                <Property Name="QuantityWithdrawnInBaseUnit" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="BaseUnit" sap:label="Quantity Issued"/>
+                <NavigationProperty Name="to_MaintOrderOperationTP" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_2E3416A9558AD25EF619E8CA5C5ABD10" FromRole="FromRole_assoc_2E3416A9558AD25EF619E8CA5C5ABD10" ToRole="ToRole_assoc_2E3416A9558AD25EF619E8CA5C5ABD10"/>
+                <NavigationProperty Name="to_MaintOrderTP" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_BF6542EAEE461067EAD3994C33E5A3A5" FromRole="FromRole_assoc_BF6542EAEE461067EAD3994C33E5A3A5" ToRole="ToRole_assoc_BF6542EAEE461067EAD3994C33E5A3A5"/>
+                <NavigationProperty Name="to_Material" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_EC799DB45C2AEDC77C86A86F96136688" FromRole="FromRole_assoc_EC799DB45C2AEDC77C86A86F96136688" ToRole="ToRole_assoc_EC799DB45C2AEDC77C86A86F96136688"/>
+                <NavigationProperty Name="to_Plant" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_5C80B6D2F4E4DEF520455BF3411A4DCE" FromRole="FromRole_assoc_5C80B6D2F4E4DEF520455BF3411A4DCE" ToRole="ToRole_assoc_5C80B6D2F4E4DEF520455BF3411A4DCE"/>
+                <NavigationProperty Name="to_StorageLocation" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_DEBD2D0E5959995885EAD25CF2522671" FromRole="FromRole_assoc_DEBD2D0E5959995885EAD25CF2522671" ToRole="ToRole_assoc_DEBD2D0E5959995885EAD25CF2522671"/>
+                <NavigationProperty Name="to_StorageLocationVH" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_3DEFB7A8A25E689B1F8B11A18C467BC8" FromRole="FromRole_assoc_3DEFB7A8A25E689B1F8B11A18C467BC8" ToRole="ToRole_assoc_3DEFB7A8A25E689B1F8B11A18C467BC8"/>
+                <NavigationProperty Name="to_Supplier" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_468E1FCAFA76218570F8749324969D27" FromRole="FromRole_assoc_468E1FCAFA76218570F8749324969D27" ToRole="ToRole_assoc_468E1FCAFA76218570F8749324969D27"/>
+                <NavigationProperty Name="to_UnitOfMeasure" Relationship="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_BEE21314F7240CCCE14B7E38B9231DB0" FromRole="FromRole_assoc_BEE21314F7240CCCE14B7E38B9231DB0" ToRole="ToRole_assoc_BEE21314F7240CCCE14B7E38B9231DB0"/>
+            </EntityType>
+            <EntityType Name="ZC_MaintOrderOperationTPType" sap:label="Maintenance Order Operation with Draft" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaintenanceOrder"/>
+                    <PropertyRef Name="MaintenanceOrderOperation"/>
+                </Key>
+                <Property Name="MaintenanceOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Order"/>
+                <Property Name="MaintenanceOrderOperation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="OperationDescription" sap:label="Work Item"/>
+                <Property Name="MaintenanceOrderSubOperation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Suboperation" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaintOrderOperationForEdit" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="OperationDescription" sap:label="Operation"/>
+                <Property Name="TechnicalObject" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Technical Object"/>
+                <Property Name="TechObjIsEquipOrFuncnlLoc" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Tech. Obj. Type"/>
+                <Property Name="MaintOrderRoutingNumber" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Opertn task list no."/>
+                <Property Name="MaintOrderOperationCounter" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Counter"/>
+                <Property Name="OperationControlKey" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Control key"/>
+                <Property Name="OperationDescription" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="Equipment" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment"/>
+                <Property Name="FunctionalLocation" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Functional Location"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="OperationWorkCenterInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Object ID"/>
+                <Property Name="OperationWorkCenter" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:text="OperationWorkCenter_Text" sap:label="Work Center"/>
+                <Property Name="OperationWorkCenter_Text" Type="Edm.String" MaxLength="40" sap:label="Work Center Text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OperationPersonResponsible" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Person Responsible"/>
+                <Property Name="OperationPlannedWork" Type="Edm.Decimal" Precision="7" Scale="1" sap:unit="OperationPlannedWorkUnit" sap:label="Planned Effort"/>
+                <Property Name="OperationPlannedWorkUnit" Type="Edm.String" MaxLength="3" sap:label="Unit for work" sap:semantics="unit-of-measure"/>
+                <Property Name="OperationDuration" Type="Edm.Decimal" Precision="5" Scale="1" sap:unit="OperationDurationUnit" sap:label="Normal duration"/>
+                <Property Name="OperationDurationUnit" Type="Edm.String" MaxLength="3" sap:label="Normal duration unit" sap:semantics="unit-of-measure"/>
+                <Property Name="OperationCalculationControl" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Calculation key"/>
+                <Property Name="MaintOrderOperationInternalID" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="ConfirmationTotalQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="OperationPlannedWorkUnit" sap:label="Actual Effort"/>
+                <Property Name="IsFinallyConfirmed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Finally confirmed" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <ComplexType Name="DummyFunctionImportResult">
+                <Property Name="ok" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </ComplexType>
+            <Association Name="C_MaintOrderTP_to_MaintOrderOperationTP" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderTP" Multiplicity="1" Role="FromRole_C_MaintOrderTP_to_MaintOrderOperationTP"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderOperationTP" Multiplicity="*" Role="ToRole_C_MaintOrderTP_to_MaintOrderOperationTP"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_C_MaintOrderTP_to_MaintOrderOperationTP">
+                        <PropertyRef Name="MaintenanceOrder"/>
+                    </Principal>
+                    <Dependent Role="ToRole_C_MaintOrderTP_to_MaintOrderOperationTP">
+                        <PropertyRef Name="MaintenanceOrder"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_952E31C7B150E37CB9551FFBADB609A0" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MalfunctionReportWorkItemType" Multiplicity="1" Role="FromRole_assoc_952E31C7B150E37CB9551FFBADB609A0"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_PMWorkCenterVHType" Multiplicity="0..1" Role="ToRole_assoc_952E31C7B150E37CB9551FFBADB609A0"/>
+            </Association>
+            <Association Name="assoc_F64534EEB9F9896D216A8118D33CAEA6" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderTPType" Multiplicity="1" Role="FromRole_assoc_F64534EEB9F9896D216A8118D33CAEA6"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderOperationTPType" Multiplicity="*" Role="ToRole_assoc_F64534EEB9F9896D216A8118D33CAEA6"/>
+            </Association>
+            <Association Name="assoc_2E3416A9558AD25EF619E8CA5C5ABD10" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" Multiplicity="1" Role="FromRole_assoc_2E3416A9558AD25EF619E8CA5C5ABD10"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderOperationTPType" Multiplicity="1" Role="ToRole_assoc_2E3416A9558AD25EF619E8CA5C5ABD10"/>
+            </Association>
+            <Association Name="assoc_BF6542EAEE461067EAD3994C33E5A3A5" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" Multiplicity="1" Role="FromRole_assoc_BF6542EAEE461067EAD3994C33E5A3A5"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderTPType" Multiplicity="1" Role="ToRole_assoc_BF6542EAEE461067EAD3994C33E5A3A5"/>
+            </Association>
+            <Association Name="assoc_EC799DB45C2AEDC77C86A86F96136688" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" Multiplicity="1" Role="FromRole_assoc_EC799DB45C2AEDC77C86A86F96136688"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.I_MaterialType" Multiplicity="0..1" Role="ToRole_assoc_EC799DB45C2AEDC77C86A86F96136688"/>
+            </Association>
+            <Association Name="assoc_5C80B6D2F4E4DEF520455BF3411A4DCE" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" Multiplicity="1" Role="FromRole_assoc_5C80B6D2F4E4DEF520455BF3411A4DCE"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.I_PlantType" Multiplicity="0..1" Role="ToRole_assoc_5C80B6D2F4E4DEF520455BF3411A4DCE"/>
+            </Association>
+            <Association Name="assoc_DEBD2D0E5959995885EAD25CF2522671" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" Multiplicity="1" Role="FromRole_assoc_DEBD2D0E5959995885EAD25CF2522671"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.I_StorageLocationType" Multiplicity="0..1" Role="ToRole_assoc_DEBD2D0E5959995885EAD25CF2522671"/>
+            </Association>
+            <Association Name="assoc_3DEFB7A8A25E689B1F8B11A18C467BC8" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" Multiplicity="1" Role="FromRole_assoc_3DEFB7A8A25E689B1F8B11A18C467BC8"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_StorageLocationVHType" Multiplicity="0..1" Role="ToRole_assoc_3DEFB7A8A25E689B1F8B11A18C467BC8"/>
+            </Association>
+            <Association Name="assoc_468E1FCAFA76218570F8749324969D27" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" Multiplicity="1" Role="FromRole_assoc_468E1FCAFA76218570F8749324969D27"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.I_SupplierType" Multiplicity="0..1" Role="ToRole_assoc_468E1FCAFA76218570F8749324969D27"/>
+            </Association>
+            <Association Name="assoc_BEE21314F7240CCCE14B7E38B9231DB0" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" Multiplicity="1" Role="FromRole_assoc_BEE21314F7240CCCE14B7E38B9231DB0"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_PMUnitOfMeasureVHType" Multiplicity="0..1" Role="ToRole_assoc_BEE21314F7240CCCE14B7E38B9231DB0"/>
+            </Association>
+            <Association Name="assoc_60BED6368A923D10732F15E9069BE50C" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintNotificationTPType" Multiplicity="1" Role="FromRole_assoc_60BED6368A923D10732F15E9069BE50C"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintNotifLongTextTPType" Multiplicity="0..1" Role="ToRole_assoc_60BED6368A923D10732F15E9069BE50C"/>
+            </Association>
+            <Association Name="assoc_C9D79B5E338F1114936679AD6C9DBD44" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintNotificationTPType" Multiplicity="1" Role="FromRole_assoc_C9D79B5E338F1114936679AD6C9DBD44"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderTPType" Multiplicity="0..1" Role="ToRole_assoc_C9D79B5E338F1114936679AD6C9DBD44"/>
+            </Association>
+            <Association Name="assoc_C89DE262A46DC4045F2A4865C89831D6" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintNotificationTPType" Multiplicity="1" Role="FromRole_assoc_C89DE262A46DC4045F2A4865C89831D6"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType" Multiplicity="0..1" Role="ToRole_assoc_C89DE262A46DC4045F2A4865C89831D6"/>
+            </Association>
+            <Association Name="assoc_7B3F3A7FB330A553409A361A53CF0625" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_PMNotificationPhaseType" Multiplicity="1" Role="FromRole_assoc_7B3F3A7FB330A553409A361A53CF0625"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_PMNotificationPhaseTextType" Multiplicity="*" Role="ToRole_assoc_7B3F3A7FB330A553409A361A53CF0625"/>
+            </Association>
+            <Association Name="assoc_BCFC16DC1AFAE294D793D8B062BD5785" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType" Multiplicity="1" Role="FromRole_assoc_BCFC16DC1AFAE294D793D8B062BD5785"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_UserType" Multiplicity="0..1" Role="ToRole_assoc_BCFC16DC1AFAE294D793D8B062BD5785"/>
+            </Association>
+            <Association Name="assoc_5B0640BCDC5DC9408207252E3126BCB4" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType" Multiplicity="1" Role="FromRole_assoc_5B0640BCDC5DC9408207252E3126BCB4"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_MaintenancePlannerGroupType" Multiplicity="0..1" Role="ToRole_assoc_5B0640BCDC5DC9408207252E3126BCB4"/>
+            </Association>
+            <Association Name="assoc_556BB001B24F5CF74911CA9A79B65BA7" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType" Multiplicity="1" Role="FromRole_assoc_556BB001B24F5CF74911CA9A79B65BA7"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.I_PlantType" Multiplicity="0..1" Role="ToRole_assoc_556BB001B24F5CF74911CA9A79B65BA7"/>
+            </Association>
+            <Association Name="assoc_F7AF1227130A5BFB1A8FE394CEF6B592" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType" Multiplicity="1" Role="FromRole_assoc_F7AF1227130A5BFB1A8FE394CEF6B592"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectCategoryType" Multiplicity="0..1" Role="ToRole_assoc_F7AF1227130A5BFB1A8FE394CEF6B592"/>
+            </Association>
+            <Association Name="assoc_1C9E742BE7C1B09E8C784E7490E865F5" sap:content-version="1">
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType" Multiplicity="1" Role="FromRole_assoc_1C9E742BE7C1B09E8C784E7490E865F5"/>
+                <End Type="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechObjIsEquipOrFuncnlLocType" Multiplicity="0..1" Role="ToRole_assoc_1C9E742BE7C1B09E8C784E7490E865F5"/>
+            </Association>
+            <EntityContainer Name="ZEAM_MALFUNCTION_MANAGE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="I_Material" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.I_MaterialType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_MaintOrderTP" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderTPType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_Malfunctionreport" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MalfunctionreportType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_MalfunctionReportWorkItem" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MalfunctionReportWorkItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_AllMaterialsMalfuncManage" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_AllMaterialsMalfuncManageType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_MaterialPlantMalfuncManagVH" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaterialPlantMalfuncManagVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_PMWorkCenterVH" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_PMWorkCenterVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_StorageLocationVH" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_StorageLocationVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_TechnicalObject" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_TechnicalObjectType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_TechnicalObjectForEditVH" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_TechnicalObjectForEditVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZI_MaintenanceJobAndWorkItem" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_MaintenanceJobAndWorkItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_MaintenancePlannerGroup" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_MaintenancePlannerGroupType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_MaterialStdVH" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_MaterialStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZI_PMNotificationPhase" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_PMNotificationPhaseType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_MaintNotificationTP" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintNotificationTPType" sap:creatable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_PMNotificationPhaseText" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_PMNotificationPhaseTextType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_PMUnitOfMeasureVH" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_PMUnitOfMeasureVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZI_TechnicalObject" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_TechnicalObjectCategory" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectCategoryType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_TechnicalObjectText" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectTextType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_TechObjIsEquipOrFuncnlLoc" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechObjIsEquipOrFuncnlLocType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_Supplier" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.I_SupplierType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_User" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_UserType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_WorkCenterText" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_WorkCenterTextType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_Plant" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.I_PlantType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_StorageLocation" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.I_StorageLocationType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_MaintNotifLongTextTP" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintNotifLongTextTPType" sap:creatable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_MaintOrderComponentTP" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType" sap:creatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_MaintOrderOperationTP" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderOperationTPType" sap:creatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_MaintNotificationTPSet" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintNotificationTP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="C_MaintOrderTPSet" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderTP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="C_MaintOrderComponentTPSet" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderComponentTP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="C_MaintOrderOperationTPSet" EntityType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderOperationTP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="C_MaintOrderTP_to_MaintOrderOperationSet" Association="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderTP_to_MaintOrderOperationTP" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_MaintOrderTPSet" Role="FromRole_C_MaintOrderTP_to_MaintOrderOperationTP"/>
+                    <End EntitySet="C_MaintOrderOperationTPSet" Role="ToRole_C_MaintOrderTP_to_MaintOrderOperationTP"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_BF6542EAEE461067EAD3994C33E5A3A5" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_BF6542EAEE461067EAD3994C33E5A3A5" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderComponentTP" Role="FromRole_assoc_BF6542EAEE461067EAD3994C33E5A3A5"/>
+                    <End EntitySet="ZC_MaintOrderTP" Role="ToRole_assoc_BF6542EAEE461067EAD3994C33E5A3A5"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_952E31C7B150E37CB9551FFBADB609A0" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_952E31C7B150E37CB9551FFBADB609A0" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MalfunctionReportWorkItem" Role="FromRole_assoc_952E31C7B150E37CB9551FFBADB609A0"/>
+                    <End EntitySet="ZC_PMWorkCenterVH" Role="ToRole_assoc_952E31C7B150E37CB9551FFBADB609A0"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_7B3F3A7FB330A553409A361A53CF0625" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_7B3F3A7FB330A553409A361A53CF0625" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZI_PMNotificationPhase" Role="FromRole_assoc_7B3F3A7FB330A553409A361A53CF0625"/>
+                    <End EntitySet="ZI_PMNotificationPhaseText" Role="ToRole_assoc_7B3F3A7FB330A553409A361A53CF0625"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_EC799DB45C2AEDC77C86A86F96136688" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_EC799DB45C2AEDC77C86A86F96136688" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderComponentTP" Role="FromRole_assoc_EC799DB45C2AEDC77C86A86F96136688"/>
+                    <End EntitySet="I_Material" Role="ToRole_assoc_EC799DB45C2AEDC77C86A86F96136688"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_C9D79B5E338F1114936679AD6C9DBD44" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_C9D79B5E338F1114936679AD6C9DBD44" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintNotificationTP" Role="FromRole_assoc_C9D79B5E338F1114936679AD6C9DBD44"/>
+                    <End EntitySet="ZC_MaintOrderTP" Role="ToRole_assoc_C9D79B5E338F1114936679AD6C9DBD44"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_5C80B6D2F4E4DEF520455BF3411A4DCE" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_5C80B6D2F4E4DEF520455BF3411A4DCE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderComponentTP" Role="FromRole_assoc_5C80B6D2F4E4DEF520455BF3411A4DCE"/>
+                    <End EntitySet="I_Plant" Role="ToRole_assoc_5C80B6D2F4E4DEF520455BF3411A4DCE"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_DEBD2D0E5959995885EAD25CF2522671" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_DEBD2D0E5959995885EAD25CF2522671" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderComponentTP" Role="FromRole_assoc_DEBD2D0E5959995885EAD25CF2522671"/>
+                    <End EntitySet="I_StorageLocation" Role="ToRole_assoc_DEBD2D0E5959995885EAD25CF2522671"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F7AF1227130A5BFB1A8FE394CEF6B592" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_F7AF1227130A5BFB1A8FE394CEF6B592" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZI_TechnicalObject" Role="FromRole_assoc_F7AF1227130A5BFB1A8FE394CEF6B592"/>
+                    <End EntitySet="ZI_TechnicalObjectCategory" Role="ToRole_assoc_F7AF1227130A5BFB1A8FE394CEF6B592"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_BEE21314F7240CCCE14B7E38B9231DB0" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_BEE21314F7240CCCE14B7E38B9231DB0" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderComponentTP" Role="FromRole_assoc_BEE21314F7240CCCE14B7E38B9231DB0"/>
+                    <End EntitySet="ZI_PMUnitOfMeasureVH" Role="ToRole_assoc_BEE21314F7240CCCE14B7E38B9231DB0"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_C89DE262A46DC4045F2A4865C89831D6" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_C89DE262A46DC4045F2A4865C89831D6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintNotificationTP" Role="FromRole_assoc_C89DE262A46DC4045F2A4865C89831D6"/>
+                    <End EntitySet="ZI_TechnicalObject" Role="ToRole_assoc_C89DE262A46DC4045F2A4865C89831D6"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F64534EEB9F9896D216A8118D33CAEA6" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_F64534EEB9F9896D216A8118D33CAEA6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderTP" Role="FromRole_assoc_F64534EEB9F9896D216A8118D33CAEA6"/>
+                    <End EntitySet="ZC_MaintOrderOperationTP" Role="ToRole_assoc_F64534EEB9F9896D216A8118D33CAEA6"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_5B0640BCDC5DC9408207252E3126BCB4" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_5B0640BCDC5DC9408207252E3126BCB4" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZI_TechnicalObject" Role="FromRole_assoc_5B0640BCDC5DC9408207252E3126BCB4"/>
+                    <End EntitySet="ZI_MaintenancePlannerGroup" Role="ToRole_assoc_5B0640BCDC5DC9408207252E3126BCB4"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_468E1FCAFA76218570F8749324969D27" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_468E1FCAFA76218570F8749324969D27" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderComponentTP" Role="FromRole_assoc_468E1FCAFA76218570F8749324969D27"/>
+                    <End EntitySet="I_Supplier" Role="ToRole_assoc_468E1FCAFA76218570F8749324969D27"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_2E3416A9558AD25EF619E8CA5C5ABD10" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_2E3416A9558AD25EF619E8CA5C5ABD10" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderComponentTP" Role="FromRole_assoc_2E3416A9558AD25EF619E8CA5C5ABD10"/>
+                    <End EntitySet="ZC_MaintOrderOperationTP" Role="ToRole_assoc_2E3416A9558AD25EF619E8CA5C5ABD10"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_3DEFB7A8A25E689B1F8B11A18C467BC8" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_3DEFB7A8A25E689B1F8B11A18C467BC8" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintOrderComponentTP" Role="FromRole_assoc_3DEFB7A8A25E689B1F8B11A18C467BC8"/>
+                    <End EntitySet="ZC_StorageLocationVH" Role="ToRole_assoc_3DEFB7A8A25E689B1F8B11A18C467BC8"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_1C9E742BE7C1B09E8C784E7490E865F5" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_1C9E742BE7C1B09E8C784E7490E865F5" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZI_TechnicalObject" Role="FromRole_assoc_1C9E742BE7C1B09E8C784E7490E865F5"/>
+                    <End EntitySet="ZI_TechObjIsEquipOrFuncnlLoc" Role="ToRole_assoc_1C9E742BE7C1B09E8C784E7490E865F5"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_BCFC16DC1AFAE294D793D8B062BD5785" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_BCFC16DC1AFAE294D793D8B062BD5785" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZI_TechnicalObject" Role="FromRole_assoc_BCFC16DC1AFAE294D793D8B062BD5785"/>
+                    <End EntitySet="ZI_User" Role="ToRole_assoc_BCFC16DC1AFAE294D793D8B062BD5785"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_556BB001B24F5CF74911CA9A79B65BA7" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_556BB001B24F5CF74911CA9A79B65BA7" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZI_TechnicalObject" Role="FromRole_assoc_556BB001B24F5CF74911CA9A79B65BA7"/>
+                    <End EntitySet="I_Plant" Role="ToRole_assoc_556BB001B24F5CF74911CA9A79B65BA7"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_60BED6368A923D10732F15E9069BE50C" Association="ZEAM_MALFUNCTION_MANAGE_SRV.assoc_60BED6368A923D10732F15E9069BE50C" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_MaintNotificationTP" Role="FromRole_assoc_60BED6368A923D10732F15E9069BE50C"/>
+                    <End EntitySet="ZC_MaintNotifLongTextTP" Role="ToRole_assoc_60BED6368A923D10732F15E9069BE50C"/>
+                </AssociationSet>
+                <FunctionImport Name="DeleteOrderComponent" ReturnType="ZEAM_MALFUNCTION_MANAGE_SRV.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderComponentTP">
+                    <Parameter Name="MaintenanceOrderOperation" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="MaintenanceOrderComponent" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="MaintenanceOrder" Type="Edm.String" Mode="In" MaxLength="12"/>
+                </FunctionImport>
+                <FunctionImport Name="DeleteOrderOperation" ReturnType="ZEAM_MALFUNCTION_MANAGE_SRV.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderOperationTP">
+                    <Parameter Name="MaintenanceOrderOperation" Type="Edm.Single" Mode="In"/>
+                    <Parameter Name="MaintenanceOrder" Type="Edm.String" Mode="In" MaxLength="12"/>
+                </FunctionImport>
+                <FunctionImport Name="CreateOrderComponent" ReturnType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderComponentTP" EntitySet="C_MaintOrderComponentTPSet" m:HttpMethod="POST" sap:action-for="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderComponentTP">
+                    <Parameter Name="MaintenanceOrderOperation" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="StorageLocation" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="Requirementquantityinbaseunit" Type="Edm.Decimal" Mode="In" Precision="3" Scale="3"/>
+                    <Parameter Name="Material" Type="Edm.String" Mode="In" MaxLength="40"/>
+                    <Parameter Name="MaintenanceOrder" Type="Edm.String" Mode="In" MaxLength="12"/>
+                </FunctionImport>
+                <FunctionImport Name="CreateOrderOperation" ReturnType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderOperationTP" EntitySet="C_MaintOrderOperationTPSet" m:HttpMethod="POST" sap:action-for="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderOperationTP">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="OperationPersonResponsible" Type="Edm.String" Mode="In" MaxLength="8"/>
+                    <Parameter Name="MaintenanceOrder" Type="Edm.String" Mode="In" MaxLength="12"/>
+                    <Parameter Name="OperationWorkCenter" Type="Edm.String" Mode="In" MaxLength="8"/>
+                    <Parameter Name="OperationDescription" Type="Edm.String" Mode="In" MaxLength="40"/>
+                </FunctionImport>
+                <FunctionImport Name="ChangeOrderOperation" ReturnType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderOperationTP" EntitySet="C_MaintOrderOperationTPSet" m:HttpMethod="POST" sap:action-for="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderOperationTP">
+                    <Parameter Name="OperationPlannedWorkUnit" Type="Edm.String" Mode="In" MaxLength="3"/>
+                    <Parameter Name="OperationPlannedWork" Type="Edm.Decimal" Mode="In" Precision="1" Scale="1"/>
+                    <Parameter Name="MaintenanceOrderOperation" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="OperationWorkCenter" Type="Edm.String" Mode="In" MaxLength="8"/>
+                    <Parameter Name="OperationPersonResponsible" Type="Edm.String" Mode="In" MaxLength="8"/>
+                    <Parameter Name="OperationDescription" Type="Edm.String" Mode="In" MaxLength="40"/>
+                    <Parameter Name="MaintenanceOrder" Type="Edm.String" Mode="In" MaxLength="12"/>
+                </FunctionImport>
+                <FunctionImport Name="ChangeOrderComponent" ReturnType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderComponentTP" EntitySet="C_MaintOrderComponentTPSet" m:HttpMethod="POST" sap:action-for="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintOrderComponentTP">
+                    <Parameter Name="MaintenanceOrderComponent" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="Storagelocation" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="Requirementquantityinbaseunit" Type="Edm.Decimal" Mode="In" Precision="3" Scale="3"/>
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="Material" Type="Edm.String" Mode="In" MaxLength="40"/>
+                    <Parameter Name="MaintenanceOrderOperation" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="MaintenanceOrder" Type="Edm.String" Mode="In" MaxLength="12"/>
+                    <Parameter Name="Baseunit" Type="Edm.String" Mode="In" MaxLength="3"/>
+                </FunctionImport>
+                <FunctionImport Name="EditHeader" ReturnType="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintNotificationTP" EntitySet="C_MaintNotificationTPSet" m:HttpMethod="POST" sap:action-for="ZEAM_MALFUNCTION_MANAGE_SRV.C_MaintNotificationTP">
+                    <Parameter Name="NotificationCreationTime" Type="Edm.Time" Mode="In" Precision="0"/>
+                    <Parameter Name="NotificationCreationDate" Type="Edm.DateTime" Mode="In" Precision="7"/>
+                    <Parameter Name="NotificationText" Type="Edm.String" Mode="In" MaxLength="40"/>
+                    <Parameter Name="ReportedByUser" Type="Edm.String" Mode="In" MaxLength="12"/>
+                    <Parameter Name="MaintenanceNotification" Type="Edm.String" Mode="In" MaxLength="12"/>
+                </FunctionImport>
+                <FunctionImport Name="SaveAttachment" ReturnType="ZEAM_MALFUNCTION_MANAGE_SRV.DummyFunctionImportResult" m:HttpMethod="POST">
+                    <Parameter Name="ObjectKey" Type="Edm.String" Mode="In" MaxLength="50"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType/MaintenanceOrderOperation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Maintenance Order Operation with Draft"/>
+                        <PropertyValue Property="CollectionPath" String="ZC_MaintOrderOperationTP"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MaintenanceOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaintenanceOrder"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MaintenanceOrderOperation"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaintenanceOrderOperation"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OperationDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OperationWorkCenter_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType/MaintenanceOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Maintenance Order with Draft"/>
+                        <PropertyValue Property="CollectionPath" String="ZC_MaintOrderTP"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MaintenanceOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaintenanceOrder"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaintenanceOrderDesc"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Material"/>
+                        <PropertyValue Property="CollectionPath" String="I_Material"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType/BaseUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Unit of measure Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_PMUnitOfMeasureVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BaseUnit"/>
+                                    <PropertyValue Property="ValueListProperty" String="UnitOfMeasure"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnitOfMeasure_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnitOfMeasureTechnicalName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Plant"/>
+                        <PropertyValue Property="CollectionPath" String="I_Plant"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintOrderComponentTPType/StorageLocation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Storage Location Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="ZC_StorageLocationVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="StorageLocation"/>
+                                    <PropertyValue Property="ValueListProperty" String="StorageLocation"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StorageLocationName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintNotificationTPType/TechnicalObject" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Technical Object"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_TechnicalObject"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TechnicalObject"/>
+                                    <PropertyValue Property="ValueListProperty" String="TechnicalObject"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TechObjIsEquipOrFuncnlLoc"/>
+                                    <PropertyValue Property="ValueListProperty" String="TechObjIsEquipOrFuncnlLoc"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="to_TechObjIsEquipOrFuncnlLoc/TechObjIsEquipOrFuncnlLoc_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="to_MaintenancePlanningPlant/PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="to_MaintenancePlannerGroup/MaintenancePlannerGroupName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType/TechObjIsEquipOrFuncnlLoc" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Technical Object is Equi. or Func. Loc."/>
+                        <PropertyValue Property="CollectionPath" String="ZI_TechObjIsEquipOrFuncnlLoc"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TechObjIsEquipOrFuncnlLoc"/>
+                                    <PropertyValue Property="ValueListProperty" String="TechObjIsEquipOrFuncnlLoc"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TechObjIsEquipOrFuncnlLoc_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType/TechnicalObjectCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Technical Object Category"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_TechnicalObjectCategory"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TechnicalObjectCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="TechnicalObjectCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TechObjIsEquipOrFuncnlLoc"/>
+                                    <PropertyValue Property="ValueListProperty" String="TechObjIsEquipOrFuncnlLoc"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType/MaintenancePlanningPlant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Plant"/>
+                        <PropertyValue Property="CollectionPath" String="I_Plant"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MaintenancePlanningPlant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType/MaintenancePlannerGroup" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Maintenance Planner Group"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_MaintenancePlannerGroup"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MaintenancePlannerGroup"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaintenancePlannerGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MaintenancePlanningPlant"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaintenancePlanningPlant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaintenancePlannerGroupName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MalfunctionReportWorkItemType/OperationWorkCenter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Plant Maintenance Work Centers"/>
+                        <PropertyValue Property="CollectionPath" String="ZC_PMWorkCenterVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="OperationWorkCenter"/>
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterInternalID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterTypeCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenter_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterCategoryCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MaintNotificationTPType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>MaintenanceNotification</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZI_TechnicalObjectType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>TechnicalObject</PropertyPath>
+                        <PropertyPath>TechObjIsEquipOrFuncnlLoc</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MalfunctionreportType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>MaintenanceNotification</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEAM_MALFUNCTION_MANAGE_SRV.ZC_MalfunctionReportWorkItemType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>MaintenanceNotification</PropertyPath>
+                        <PropertyPath>MaintenanceOrderOperation</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://smiwddwd3400:44306/sap/opu/odata/sap/ZEAM_MALFUNCTION_MANAGE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://smiwddwd3400:44306/sap/opu/odata/sap/ZEAM_MALFUNCTION_MANAGE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

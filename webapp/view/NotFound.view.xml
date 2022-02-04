@@ -1,0 +1,4 @@
+<mvc:View controllerName="zi2d.eam.malfunction.manages1.controller.NotFound" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<MessagePage title="{i18n>xtit.NotFound}" text="{i18n>xtxt.NotFound.text}" description="{i18n>xtxt.NotFound.description}"
+		showNavButton="true" navButtonPress="onNavBack"/>
+</mvc:View>

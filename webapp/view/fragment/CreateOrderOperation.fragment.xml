@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartform="sap.ui.comp.smartform"
+	xmlns:smartfield="sap.ui.comp.smartfield" xmlns:layout="sap.ui.layout" 	xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>xtit.addWorkItem}" contentWidth="40rem" id="pmMalfuncManageDialogEditWorkItem" stretch="{device>/system/phone}" afterClose="afterDialogClosed">
+		<content>            
+            <VBox width="100%" direction="Column" wrap="Wrap">
+                <items>
+                    <f:SimpleForm editable="true" layout="ColumnLayout" backgroundDesign="Solid" labelSpanM="12" labelSpanL="12" labelSpanXL="12" emptySpanL="6" emptySpanM="6">
+                        <f:content>
+                            <Label text="{i18n>xfld.workCenterAndPlant}" required="true" labelFor="inpOperationWorkCenter"/>
+                            <Input id="inpOperationWorkCenter" value="{appView>/OperationWorkCenter}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest=".onValueHelpOperationWorkCenter"/>
+                            <Text text="{appView>/Plant}"/>
+                            <Label text="{i18n>xfld.workDesc}" required="false" labelFor="inpOperationDescription"/>
+                            <Input id="inpOperationDescription" value="{appView>/OperationDescription}"/>
+                        </f:content>
+                    </f:SimpleForm>
+                </items>
+            </VBox>                		
+		</content>
+        <beginButton>
+            <Button id="submitButton" type="Emphasized" text="{i18n>xbut.save}" tooltip="{i18n>xbut.save}" press="onCreateOrderOperation"/>
+        </beginButton>
+        <endButton>
+            <Button id="cancelButton" text="{i18n>xbut.cancel}" tooltip="{i18n>xbut.cancel}" press="onCancelPressed"/>
+        </endButton>
+	</Dialog>
+</core:FragmentDefinition>

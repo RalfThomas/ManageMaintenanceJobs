@@ -1,0 +1,41 @@
+<mvc:View controllerName="zi2d.eam.malfunction.manages1.controller.fragment.EditJobHeaderDialog" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smartfield="sap.ui.comp.smartfield" xmlns:core="sap.ui.core"
+	xmlns:smartform="sap.ui.comp.smartform" xmlns="sap.m" xmlns:layout="sap.ui.layout" bindingContexts="{}">
+	<Dialog contentWidth="40rem" id="pmMalfuncManageDialogEditJobHeader" stretch="{device>/system/phone}" title="{i18n>xtit.editHeader}" bindingContexts="{}">
+		<content>
+			<smartform:SmartForm editTogglable="false" editable="true" flexEnabled="false" id="malfuncManageSmartFormEditJobHeader" bindingContexts="{}">
+				<smartform:layout>
+					<smartform:Layout columnsL="2" columnsM="2" emptySpanL="1" emptySpanM="0" labelSpanL="12" labelSpanM="12"></smartform:Layout>
+				</smartform:layout>
+				<smartform:groups>
+					<smartform:Group>
+						<smartform:GroupElement>
+							<smartfield:SmartField mandatory="true" textLabel="{ReportedByUser/#@sap:label}" value="{ReportedByUser}" />
+						</smartform:GroupElement>
+						<smartform:GroupElement>
+							<smartfield:SmartField textLabel="{/#ZC_MalfunctionreportType/NotificationText/@sap:label}" value="{NotificationText}" />
+						</smartform:GroupElement>
+						<!-- <smartform:GroupElement>
+							<smartfield:SmartField textLabel="{/#ZC_MalfunctionreportType/PersonResponsible/@sap:label}" value="{PersonResponsible}" />
+						</smartform:GroupElement> -->
+						<smartform:GroupElement elementForLabel="0">
+							<smartfield:SmartField textLabel="{/#ZC_MalfunctionreportType/NotificationDateTime/@sap:label}" id="malfuncManageSmartFieldCreationDate"
+								value="{NotificationCreationDate}">
+								<smartfield:layoutData>
+									<layout:GridData spanL="6" spanM="6" spanS="6"/>
+								</smartfield:layoutData>
+							</smartfield:SmartField>
+							<smartfield:SmartField id="malfuncManageSmartFieldCreationTime" ariaLabelledBy="malfuncManageSmartFieldCreationTimeLabel"
+								value="{NotificationCreationTime}">
+								<smartfield:layoutData>
+									<layout:GridData spanL="2" spanM="3" spanS="6"/>
+								</smartfield:layoutData>
+							</smartfield:SmartField>
+						</smartform:GroupElement>
+					</smartform:Group>
+				</smartform:groups>
+			</smartform:SmartForm>
+			<core:InvisibleText id="malfuncManageSmartFieldCreationTimeLabel" text="{/#ZC_MaintNotificationTPType/NotificationCreationTime/@sap:label}" />
+		</content>
+	</Dialog>
+</mvc:View>
