@@ -91,6 +91,25 @@ sap.ui.define([
                             },
                             error: function(oResponse) {}
                         });
+                    } else {
+                        var href = window.location.href;
+                        var MaintenanceOrderOperation = href.substr(href.length - 4);
+                        var sPath = "/ZC_MalfunctionReportWorkItem(MaintenanceOrder='" + sOrder + "',MaintenanceOrderOperation='" + MaintenanceOrderOperation + "')";
+                        this.getView().getModel().read(sPath, {
+                            success: function(oData) {
+                                var s = oData;
+                                var sPath = "/TechnicalObjectSet(TechnicalObjectNumber='" + oData.TechnicalObject + "',TechnicalObjectType='" + oData.TechObjIsEquipOrFuncnlLoc + "')";
+                                that.getView().getModel("ZEAM_NTF_CREATE_SRV").read(sPath, {
+                                    success: function(oData) {
+                                        that.getModel("appView").setProperty("/TechnicalObject", oData);
+                                        that.getModel("appView").setProperty("/VisTechnicalObject", true);
+                                        that._oTechnicalObjectOverviewAttachments.onTechObGetAllOriginals(oData.TechnicalObjectNumber, oData.TechnicalObjectType, that.getModel("appView"));
+                                    },
+                                    error: function(oResponse) {}
+                                });
+                            },
+                            error: function(oResponse) {}
+                        });
                     }
                 }.bind(this),
                 sActiveMaintNotif = oEvent.getParameter("arguments").MaintenanceNotification;
