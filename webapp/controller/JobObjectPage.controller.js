@@ -35,9 +35,10 @@ sap.ui.define([
         },
 
         onRouteMatched: function(oEvent, bIsInForeground) {
+            var MaintenanceOrderOperation = oEvent.getParameter("arguments").MaintenanceOrderOperation;
             var that = this,
                 oView = that.getView(),
-                fnOnDataReceived = function(oEvent) {
+                fnOnDataReceived = function(MaintenanceOrderOperation, oEvent) {
                     var oData = oEvent.getParameter("data");
 
                     if (!oData) {
@@ -111,13 +112,12 @@ sap.ui.define([
                             error: function(oResponse) {}
                         });
                     }
-                }.bind(this),
+                }.bind(this, MaintenanceOrderOperation),
                 sActiveMaintNotif = oEvent.getParameter("arguments").MaintenanceNotification;
 
             //Long Text
             this.readNotifLongText(sActiveMaintNotif);
 
-            var MaintenanceOrderOperation = oEvent.getParameter("arguments").MaintenanceOrderOperation;
 
             this.bIsInForeground = bIsInForeground;
 
