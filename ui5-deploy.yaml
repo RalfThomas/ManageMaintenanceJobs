@@ -25,4 +25,4 @@ builder:
           name: ZEAM_MALF_MANS1
           description: Fiori Manage Maintenance Jobs
           package: ZPPM_UI5
-          transport: DNWK900333
+          transport: DNWK900400
