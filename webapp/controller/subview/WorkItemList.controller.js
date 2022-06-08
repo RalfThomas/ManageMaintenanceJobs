@@ -197,6 +197,8 @@ sap.ui.define([
                 afterDialogClosed: function() {
                     this.getView().removeDependent(oDialog);
                     oDialog.destroy(true);
+                    oModel.resetChanges();
+                    this._oSmartTable.rebindTable();
                 },
                 cancelTimeConfirmation: function() {
                     oDialog.close();
