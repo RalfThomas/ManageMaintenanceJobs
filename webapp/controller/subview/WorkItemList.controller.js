@@ -172,9 +172,12 @@ sap.ui.define([
                 oContext = oEvent.getSource().getBindingContext();
 
             var that = this;
+            var sIsfinalconfirmationInitial = null;
+
 
             var oDialog = sap.ui.xmlfragment("zi2d.eam.malfunction.manages1.view.fragment.TimeConfirmationDialog", jQuery.extend({}, this, {
                 afterDialogOpen: function() {
+                    sIsfinalconfirmationInitial = sap.ui.getCore().byId("IsfinalconfirmationField").getValue();
                     var oActualworkquantityField = sap.ui.getCore().byId("ActualworkquantityField");
                     if (oActualworkquantityField) {
                         oActualworkquantityField.setValue(null); //setValue('0');
@@ -219,7 +222,7 @@ sap.ui.define([
                         oActualworkquantityField.setValueState(sap.ui.core.ValueState.None);
                     } 
                     var sIsfinalconfirmation = sap.ui.getCore().byId("IsfinalconfirmationField").getValue();
-                    if(sIsfinalconfirmation){
+                    if(sIsfinalconfirmationInitial){
                         MessageBox.error(that.getI18nBundle().getText("ymsg.finallyConfirmed"));                        
                         this.cancelTimeConfirmation();
                         return;
