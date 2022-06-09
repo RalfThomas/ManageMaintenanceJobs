@@ -206,7 +206,7 @@ sap.ui.define([
                         oModel.resetChanges();
                     }
                 },
-                createTimeConfirmation: function() {
+                createTimeConfirmation: function() {                  
                     var oSourceData = oEvent.getSource().getBindingContext().getObject();
                     var oActualworkquantityField = sap.ui.getCore().byId("ActualworkquantityField");
                     var sActualworkquantity = oActualworkquantityField.getValue();
@@ -217,9 +217,14 @@ sap.ui.define([
                         return;
                     } else {
                         oActualworkquantityField.setValueState(sap.ui.core.ValueState.None);
-                    }
-
+                    } 
                     var sIsfinalconfirmation = sap.ui.getCore().byId("IsfinalconfirmationField").getValue();
+                    if(sIsfinalconfirmation){
+                        MessageBox.error(that.getI18nBundle().getText("ymsg.finallyConfirmed"));                        
+                        this.cancelTimeConfirmation();
+                        return;
+                    }
+                                             
                     var sPersonnelnumber = sap.ui.getCore().byId("OperationPersonResponsible").getValue();
                     var sPostingdate = sap.ui.getCore().byId("PostingdateField").getValue();
                     var dPostingdate = new Date();
