@@ -37,7 +37,7 @@
                         <smartform:GroupElement elementForLabel="1">
 							<smartform:elements>
 								 <TextArea  class="sapMLIBContent" value="{KommentarModel>/OperationLongText}" 
-                                            rows="6" editable="true"
+                                            rows="6" editable="false"
                                             maxLength="1333" growing="true" 
                                             width="100%" height="auto">
                                     <layoutData>
