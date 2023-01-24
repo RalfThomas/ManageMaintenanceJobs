@@ -1,7 +1,15 @@
 sap.ui.define([
     "./../DialogController",
-    "sap/ui/base/ManagedObjectObserver"
-], function(DialogController, ManagedObjectObserver) {
+    "sap/ui/base/ManagedObjectObserver",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/Fragment",
+    'sap/ui/comp/filterbar/FilterBar',
+    'sap/ui/comp/filterbar/FilterGroupItem',
+    'sap/ui/comp/filterbar/FilterItem',
+    'sap/m/Token',
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+], function(DialogController, ManagedObjectObserver, J, Fragment, FilterBar, FilterGroupItem, FilterItem, Token, Filter, FilterOperator) {
     "use strict";
 
     return DialogController.extend("zi2d.eam.malfunction.manages1.controller.fragment.EditWorkItemDialog", {
@@ -169,6 +177,175 @@ sap.ui.define([
 
             // this way we bring the value into the draft model (will trigger a MERGE):
             oField.setValue(iValue.toString());
+        },
+
+        onMainWorkCenterValueHelpRequest: function () {
+
+            const oInput = this.getView().byId("idMainWorkCenterInput");
+
+           
+            Fragment.load({
+                name: "zi2d.eam.malfunction.manages1.view.fragment.MainWorkCenterInput",
+                controller: this
+            }).then(function name(oFragment) {
+
+                const oColumns = new J({
+                    "cols": [
+                        {
+                            "label": "{i18n>xtit.MainWorkCenter}",
+                            "template": "Mainworkcenter"
+                        },
+                        {
+                            "label": "{i18n>xtit.Plant}",
+                            "template": "Plant"
+                        },
+                        {
+                            "label": "{i18n>xtit.MainWorkCenterText}",
+                            "template": "Mainworkcentertext"
+                        }
+                    ]
+                });
+
+                const aColumns = oColumns.getProperty("/cols");
+
+                this._pValueHelpDialog = oFragment;
+                this.getView().addDependent(this._pValueHelpDialog);
+
+                var oModel = this.getModel("ZEAM_NTF_CREATE_SRV");
+
+                this._pValueHelpDialog.getTableAsync().then(function (oTable) {
+
+                    oTable.setModel(oModel);
+                    oTable.setModel(oColumns, "columns");
+
+                    
+                    if (oTable.bindRows) {
+                        oTable.bindAggregation("rows", "/MainWorkCenterVHSet");
+                    }
+
+                    if (oTable.bindItems) {
+                        oTable.bindAggregation("items", "/MainWorkCenterVHSet", function () {
+                            return new ColumnListItem({
+                                cells: aColumns.map(function (column) {
+                                    return new Label({ text: "{" + column.template + "}" });
+                                })
+                            });
+                        });
+                    }
+                    this._pValueHelpDialog.update();
+
+                }.bind(this));
+                
+
+                var oFilterBar = new FilterBar({
+                    advancedMode: true,
+                    search: this.onFilterBarSearch.bind(this)
+                })
+
+                var oFilterInput = new sap.m.Input({
+                    id: "PlantFilterID2",
+                    name: "Plant"
+                })
+
+                var oFilterGroupItem = new FilterGroupItem({
+                    groupName: "__$INTERNAL$",
+                    name: "Plant",
+                    label: "{i18n>xtit.Plant}",
+                    visibleInFilterBar: true,
+                    control: [oFilterInput]
+                })
+
+                oFilterBar.addFilterGroupItem(oFilterGroupItem);
+                oFragment.setFilterBar(oFilterBar);
+
+                //if (this._sCurrentPlant) {
+                
+                    oFilterInput.setValue(this.getView().byId("idPlantInput").getValue());
+                    oFilterBar.fireSearch({ selectionSet: [oFilterInput] });
+                //}
+
+                var oToken = new Token();
+
+                oToken.setKey(oInput.getSelectedKey());
+
+                oToken.setText(oInput.getValue());
+
+                this._pValueHelpDialog.setTokens([oToken]);
+
+                this._pValueHelpDialog.open();
+
+            }.bind(this));
+
+
+        },
+
+        onValueHelpCancelPress: function () {
+            this._pValueHelpDialog.close();
+        },
+
+        onValueHelpAfterClose: function () {
+            this._pValueHelpDialog.destroy();
+        },
+
+        onValueHelpOkPress: function (oEvent) {
+            var aTokens = oEvent.getParameter("tokens");
+            this.getView().byId("idMainWorkCenterInput").setSelectedKey(aTokens[0].getKey());
+            var oTable = oEvent.getSource().getTable();
+            if (oTable) {
+                var mainworkcenter = oEvent.getParameters().tokens[0].getAggregation("customData")[0].getProperty("value").Mainworkcenter;
+                var plant = oEvent.getParameters().tokens[0].getAggregation("customData")[0].getProperty("value").Plant;
+                //var selectedIndex = oTable.getSelectedIndex();
+                //var mainworkcenter = oTable.getRows()[selectedIndex].getBindingContext().getObject().Mainworkcenter;
+                this.getView().byId("idMainWorkCenterInput").setValue(mainworkcenter);
+                this.getView().byId("idPlantInput").setValue(plant);
+            }
+            this._pValueHelpDialog.close();
+        },
+
+        onFilterBarSearch: function (oEvent) {
+            //var sSearchQuery = this._oBasicSearchField.getValue(),
+            var aSelectionSet = oEvent.getParameter("selectionSet");
+            var aFilters = aSelectionSet.reduce(function (aResult, oControl) {
+                if (oControl.getValue()) {
+                    aResult.push(new Filter({
+                        path: oControl.getName(),
+                        operator: FilterOperator.Contains,
+                        value1: oControl.getValue()
+                    }));
+                }
+
+                return aResult;
+            }, []);
+
+            // aFilters.push(new Filter({
+            // 	filters: [
+            // 		new Filter({ path: "Mainworkcenter", operator: FilterOperator.Contains, value1: sSearchQuery }),
+            // 		new Filter({ path: "Plant", operator: FilterOperator.Contains, value1: sSearchQuery }),
+            // 		new Filter({ path: "Mainworkcentertext", operator: FilterOperator.Contains, value1: sSearchQuery })
+            // 	],
+            // 	and: false
+            // }));
+
+            this._filterTable(new Filter({
+                filters: aFilters,
+                and: true
+            }));
+        },
+
+        _filterTable: function (oFilter) {
+            var oValueHelpDialog = this._pValueHelpDialog;
+
+            oValueHelpDialog.getTableAsync().then(function (oTable) {
+                if (oTable.bindRows) {
+                    oTable.getBinding("rows").filter(oFilter);
+                }
+
+                if (oTable.bindItems) {
+                    oTable.getBinding("items").filter(oFilter);
+                }
+
+                oValueHelpDialog.update();
+            });
         },
 
         _onOkPressed: function() {

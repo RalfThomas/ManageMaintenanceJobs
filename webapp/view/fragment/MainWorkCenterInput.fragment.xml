@@ -1,0 +1,20 @@
+<core:FragmentDefinition    xmlns:core="sap.ui.core"
+                            xmlns:m="sap.m"
+	                        xmlns:fb="sap.ui.comp.filterbar"
+                            xmlns="sap.ui.comp.valuehelpdialog"
+                            xmlns:customdata="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+                            >
+    <ValueHelpDialog id="selectDialogMainWorkCenter" 
+                title="{i18n>xtit.mainworkcenter}" 
+                supportMultiselect="false"
+                ok=".onValueHelpOkPress"
+		        cancel=".onValueHelpCancelPress"
+                afterClose=".onValueHelpAfterClose"
+                contentHeight="auto"
+                draggable="true"
+                key="Workcenterinternalid"
+		        descriptionKey="Mainworkcenter"
+                >
+        
+    </ValueHelpDialog> 
+</core:FragmentDefinition>

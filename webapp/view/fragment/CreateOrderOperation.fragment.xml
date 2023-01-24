@@ -7,8 +7,10 @@
                     <f:SimpleForm editable="true" layout="ColumnLayout" backgroundDesign="Solid" labelSpanM="12" labelSpanL="12" labelSpanXL="12" emptySpanL="6" emptySpanM="6">
                         <f:content>
                             <Label text="{i18n>xfld.workCenterAndPlant}" required="true" labelFor="inpOperationWorkCenter"/>
-                            <Input id="inpOperationWorkCenter" value="{appView>/OperationWorkCenter}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest=".onValueHelpOperationWorkCenter"/>
-                            <Text text="{appView>/Plant}"/>
+                            <Input id="inpOperationWorkCenter" value="{appView>/OperationWorkCenter}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest=".onValueHelpOperationWorkCenter">
+                                <core:Item key="{Workcenterinternalid}" text="{Mainworkcenter}" /> 
+                            </Input>
+                            <Text id="idPlantText" text="{appView>/Plant}"/>
                             <Label text="{i18n>xfld.workDesc}" required="false" labelFor="inpOperationDescription"/>
                             <Input id="inpOperationDescription" value="{appView>/OperationDescription}"/>
                         </f:content>

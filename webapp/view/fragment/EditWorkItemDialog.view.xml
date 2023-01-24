@@ -1,5 +1,5 @@
  <mvc:View controllerName="zi2d.eam.malfunction.manages1.controller.fragment.EditWorkItemDialog" xmlns:html="http://www.w3.org/1999/xhtml"
-	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smartfield="sap.ui.comp.smartfield"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:smartfield="sap.ui.comp.smartfield" xmlns:core="sap.ui.core"
 	xmlns:smartform="sap.ui.comp.smartform" xmlns="sap.m" xmlns:layout="sap.ui.layout">  
 	<Dialog contentWidth="40rem" id="pmMalfuncManageDialogEditWorkItem" busy="{app>/isDialogBusy}" stretch="{device>/system/phone}">
 		<content>
@@ -11,9 +11,17 @@
 					<smartform:Group>
 						<smartform:GroupElement>
 							<smartform:elements>
-								<smartfield:SmartField textLabel="{i18n>xfld.workCenterAndPlant}" fieldGroupIds="OperationWorkCenter" editable="true" enabled="true" mandatory="true"
-									value="{OperationWorkCenter}"/>
-								<smartfield:SmartField fieldGroupIds="OperationWorkCenter" editable="true" value="{Plant}"/>
+								<VBox>
+									<Label  id="idMainWorkCenterLabel" 
+									text="{i18n>xfld.workCenterAndPlant}:" 
+									required="true"/>
+									<Input id="idMainWorkCenterInput" showValueHelp="true" value="{OperationWorkCenter}" valueHelpRequest="onMainWorkCenterValueHelpRequest">
+										<core:Item key="{Workcenterinternalid}" text="{Mainworkcenter}" /> 
+									</Input>
+									<!-- <smartfield:SmartField textLabel="{i18n>xfld.workCenterAndPlant}" fieldGroupIds="OperationWorkCenter" showValueHelp="true" enabled="true" mandatory="true"
+										value="{OperationWorkCenter}"/>-->
+									<smartfield:SmartField id="idPlantInput" fieldGroupIds="OperationWorkCenter" editable="true" value="{Plant}"/>
+								</VBox>
 							</smartform:elements>
 						</smartform:GroupElement>
 						<smartform:GroupElement>

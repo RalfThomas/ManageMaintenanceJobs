@@ -1,6 +1,29 @@
-<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:table="sap.ui.table">
-	<Dialog title="{/#ZC_PMWorkCenterVHType/WorkCenter/@sap:label}" class="sapUiResponsiveMargin" draggable="true" afterClose="onExitValueHelpOperationWorkCenter" resizable="true"
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:m="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:table="sap.ui.table" xmlns="sap.ui.comp.valuehelpdialog"
+>
+
+
+
+	<ValueHelpDialog id="addselectDialogMainWorkCenter" 
+                title="{/#ZC_PMWorkCenterVHType/WorkCenter/@sap:label}" 
+                supportMultiselect="false"
+                ok=".onValueHelpOkPress"
+		        cancel="onCancelValueHelpOperationWorkCenter"
+                afterClose="onExitValueHelpOperationWorkCenter"
+                contentHeight="auto"
+                draggable="true"
+                key="Workcenterinternalid"
+		        descriptionKey="Mainworkcenter"
+                >
+        
+    </ValueHelpDialog>
+
+
+
+
+
+
+<!--	<Dialog title="{/#ZC_PMWorkCenterVHType/WorkCenter/@sap:label}" class="sapUiResponsiveMargin" draggable="true" afterClose="onExitValueHelpOperationWorkCenter" resizable="true"
 		>
 		<buttons>
 			<Button text="{i18n>xbut.cancel}" type="Emphasized" press="onCancelValueHelpOperationWorkCenter"/>
@@ -30,9 +53,9 @@
 							<FlexItemData growFactor="1" baseSize="0%"/>
 						</smartTable:layoutData>
 						<table:Table id="tableSmartTableID" alternateRowColors="true" enableSelectAll="false" selectionMode="Single" selectionBehavior="Row"
-							rowSelectionChange="onChooseOperationWorkCenter" visibleRowCountMode="Interactive">
+							rowSelectionChange="onChooseOperationWorkCenter" visibleRowCountMode="Interactive"> -->
 							<!--WorkCenter-->
-							<table:Column width="10em" id="WorkCenterColumn" sortProperty="WorkCenter" filterProperty="WorkCenter">
+<!--							<table:Column width="10em" id="WorkCenterColumn" sortProperty="WorkCenter" filterProperty="WorkCenter">
 								<table:customData>
 									<core:CustomData key="p13nData" value='\{"columnKey": "WorkCenter", "leadingProperty": "WorkCenter"}'/>
 								</table:customData>
@@ -40,9 +63,9 @@
 								<table:template>
 									<ObjectIdentifier id="WorkCenterCell" title="{WorkCenter}"/>
 								</table:template>
-							</table:Column>
+							</table:Column> -->
 							<!--Plant-->
-							<table:Column width="7em" id="PlantColumn" sortProperty="Plant" filterProperty="Plant">
+<!--							<table:Column width="7em" id="PlantColumn" sortProperty="Plant" filterProperty="Plant">
 								<table:customData>
 									<core:CustomData key="p13nData" value='\{"columnKey": "Plant", "leadingProperty": "Plant"}'/>
 								</table:customData>
@@ -50,9 +73,9 @@
 								<table:template>
 									<Text id="PlantCell" text="{Plant}"/>
 								</table:template>
-							</table:Column>
+							</table:Column> -->
 							<!--WorkCenterCategoryCode-->
-							<table:Column width="11em" id="WorkCenterCategoryCodeColumn" sortProperty="WorkCenterCategoryCode" filterProperty="WorkCenterCategoryCode">
+<!--							<table:Column width="11em" id="WorkCenterCategoryCodeColumn" sortProperty="WorkCenterCategoryCode" filterProperty="WorkCenterCategoryCode">
 								<table:customData>
 									<core:CustomData key="p13nData" value='\{"columnKey": "WorkCenterCategoryCode", "leadingProperty": "WorkCenterCategoryCode"}'/>
 								</table:customData>
@@ -60,9 +83,9 @@
 								<table:template>
 									<Text id="WorkCenterCategoryCodeCell" text="{WorkCenterCategoryCode}"/>
 								</table:template>
-							</table:Column>
+							</table:Column> -->
                             <!--WorkCenter_Text-->
-							<table:Column  id="WorkCenterTextColumn" sortProperty="WorkCenter_Text" filterProperty="WorkCenter_Text">
+<!--							<table:Column  id="WorkCenterTextColumn" sortProperty="WorkCenter_Text" filterProperty="WorkCenter_Text">
 								<table:customData>
 									<core:CustomData key="p13nData" value='\{"columnKey": "WorkCenter_Text", "leadingProperty": "WorkCenter_Text"}'/>
 								</table:customData>
@@ -76,5 +99,5 @@
 				</items>
 			</VBox>
 		</content>
-	</Dialog>
+	</Dialog> -->
 </core:FragmentDefinition>
